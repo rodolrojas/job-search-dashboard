@@ -11,7 +11,7 @@ interface FiltersProps {
   onClear: () => void;
 }
 
-const selectClass = 'h-11 min-w-0 rounded-xl border border-[#d7ded8] bg-white px-3 text-sm text-[#33473d] outline-none focus:border-[#6e9381] focus:ring-2 focus:ring-[#cfe1d8]';
+const selectClass = 'h-11 min-w-0 rounded-xl border border-[#d7ded8] bg-white px-3 text-sm text-[#33473d] outline-none focus:border-[#6e9381] focus:ring-2 focus:ring-[#cfe1d8] dark:border-[#304139] dark:bg-[#111c16] dark:text-[#c6d5cd] dark:focus:border-[#6ca88b] dark:focus:ring-[#294a3a]';
 
 export function Filters({ filters, jobs, onChange, onClear }: FiltersProps) {
   const companies = [...new Set(jobs.map((job) => job.company))].sort();
@@ -19,15 +19,15 @@ export function Filters({ filters, jobs, onChange, onClear }: FiltersProps) {
   const dirty = filters.query || filters.minScore || filters.company || filters.location || filters.status !== 'all' || filters.sort !== 'score_desc';
 
   return (
-    <section aria-label="Job filters" className="rounded-2xl border border-[#d9e0da] bg-white p-3 shadow-[0_12px_34px_rgba(31,61,45,0.045)]">
+    <section aria-label="Job filters" className="rounded-2xl border border-[#d9e0da] bg-white p-3 shadow-[0_12px_34px_rgba(31,61,45,0.045)] dark:border-[#2c3c34] dark:bg-[#15211b] dark:shadow-black/20">
       <div className="grid gap-3 xl:grid-cols-[minmax(220px,1.7fr)_repeat(5,minmax(132px,1fr))_auto]">
-        <label className="flex h-11 items-center gap-3 rounded-xl bg-[#f2f5f2] px-4 text-[#6a776f] focus-within:ring-2 focus-within:ring-[#cfe1d8]">
+        <label className="flex h-11 items-center gap-3 rounded-xl bg-[#f2f5f2] px-4 text-[#6a776f] focus-within:ring-2 focus-within:ring-[#cfe1d8] dark:bg-[#111c16] dark:text-[#a3b4aa] dark:focus-within:ring-[#294a3a]">
           <Search size={17} aria-hidden="true" />
           <span className="sr-only">Search roles</span>
           <input
             value={filters.query}
             onChange={(event) => onChange('query', event.target.value)}
-            className="w-full bg-transparent text-sm text-[#273a31] outline-none placeholder:text-[#8a958e]"
+            className="w-full bg-transparent text-sm text-[#273a31] outline-none placeholder:text-[#8a958e] dark:text-[#d2ddd7] dark:placeholder:text-[#73857b]"
             placeholder="Search role, company, skill…"
           />
         </label>
@@ -72,10 +72,9 @@ export function Filters({ filters, jobs, onChange, onClear }: FiltersProps) {
           <RotateCcw size={17} />
         </Button>
       </div>
-      <div className="mt-3 flex items-center gap-2 px-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#849087] xl:hidden">
+      <div className="mt-3 flex items-center gap-2 px-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#849087] dark:text-[#899b91] xl:hidden">
         <SlidersHorizontal size={13} /> Multiple filters can be combined
       </div>
     </section>
   );
 }
-

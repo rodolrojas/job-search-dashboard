@@ -1,8 +1,17 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #f6f7f4;
   --foreground: #18201b;
+  color-scheme: light;
+}
+
+:root.dark {
+  --background: #0d1511;
+  --foreground: #e8f0eb;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -34,6 +43,11 @@ a {
 ::selection {
   background: #cce0d6;
   color: #173d2f;
+}
+
+.dark ::selection {
+  background: #315c47;
+  color: #edf6f1;
 }
 
 @keyframes fade-in {
