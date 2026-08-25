@@ -57,7 +57,7 @@ export interface JobFilters {
 
 export interface CoverLetterResult {
   content: string;
-  mode: 'openai' | 'local' | 'preview';
+  mode: 'codex' | 'local' | 'preview';
   warning?: string;
   filename: string;
   saved_to?: string;
