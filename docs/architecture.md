@@ -34,7 +34,7 @@ flowchart LR
   Agent --> Persist[Atomic job-search JSON run]
   Persist --> Runs
   API --> Cover[Cover-letter agent]
-  Cover --> Responses[OpenAI Responses API]
+  Cover --> Runtime
   Cover --> Drafts[Local deterministic fallback]
   Cover --> Output[Generated cover-letter files]
 
@@ -47,9 +47,10 @@ flowchart LR
 - The Next.js frontend presents the shortlist, composes filters, and sends explicit user actions to the API.
 - The Flask API owns data normalization, durable status changes, cover-letter generation, and access to candidate profile data.
 - Existing JSON files remain the portable source of truth. SQLAlchemy builds a queryable local index without replacing them.
-- The job-search orchestrator invokes the signed-in host Codex CLI through
-  `codex exec`. Prompts travel over stdin and final results are constrained by
-  generated Pydantic JSON Schemas. No OpenAI API key is read by this workflow.
+- The job-search and cover-letter agents invoke the signed-in host Codex CLI
+  through `codex exec`. Prompts travel over stdin and final results are
+  constrained by generated Pydantic JSON Schemas. Neither workflow reads an
+  OpenAI API key.
 - When Flask runs in Docker, its runtime adapter sends only the prompt, output
   schema, and search flag to an authenticated bridge on the host. The bridge
   does not accept arbitrary commands, paths, or sandbox settings.

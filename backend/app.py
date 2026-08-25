@@ -176,6 +176,7 @@ def create_app(test_config: dict | None = None) -> Flask:
             profile=repository.load_profile(),
             variant_key=variant_key,
             output_root=data_root / "output" / "cover_letters",
+            workspace=Path(app.config.get("CODEX_WORKSPACE", HERE.parent)),
         )
         return jsonify(result)
 

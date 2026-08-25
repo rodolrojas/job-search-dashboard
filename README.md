@@ -9,8 +9,8 @@ It includes:
 - sorting by score, date, company, or role;
 - run totals, top-three recommendations, prior-run comparison, search issues, and login-wall notes;
 - persistent **Mark as Applied** and **Mark as Rejected** actions;
-- tailored cover-letter generation using the suggested resume variant;
-- optional OpenAI Responses API cover-letter generation with a truthful local fallback;
+- Codex-powered cover-letter generation using the suggested resume variant,
+  with a truthful local fallback;
 - Flask + SQLAlchemy models for jobs, profile, application history, and exclusions.
 - an inspectable AI job-search agent that plans searches, invokes the signed-in
   Codex CLI on the host machine for web research and structured scoring,
@@ -51,8 +51,8 @@ python app.py
 
 The API starts at `http://localhost:5000`. On first launch it finds the newest `job_search_YYYY-MM-DD*.json` file, imports the profile and history JSON files, and builds `backend/role_radar.db` as a local SQLAlchemy index.
 
-The job-search agent does not require `OPENAI_API_KEY`. It launches the host's
-signed-in `codex exec` runtime in read-only, non-interactive mode. Confirm that
+The job-search and cover-letter agents do not require an API key. They launch
+the host's signed-in `codex exec` runtime in read-only, non-interactive mode. Confirm that
 `codex --version` works in the same terminal that starts Flask, then select
 **Run AI search** in the dashboard. If the executable is not on `PATH`, set
 `CODEX_CLI_PATH` in `backend/.env`. Leave `CODEX_MODEL` blank to inherit the
@@ -109,16 +109,15 @@ Compose points the backend at `http://host.docker.internal:8765`. The bearer
 token is required on both sides; do not commit it. If Windows Firewall asks,
 allow the bridge only on trusted/private networks.
 
-## Optional OpenAI cover-letter generation
+## Codex cover-letter generation
 
-The backend works without an API key and creates a deterministic draft from verified profile data. To use the OpenAI Responses API, set these values in `backend/.env`:
-
-```dotenv
-OPENAI_API_KEY=your_key_here
-OPENAI_MODEL=gpt-5.4
-```
-
-The official SDK reads `OPENAI_API_KEY` from the environment. Generated letters are saved under the parent workspace at `output/cover_letters/`. Review every letter before using it. See the [official Responses API reference](https://developers.openai.com/api/reference/cli/resources/responses/methods/create).
+Cover letters use the same direct Codex CLI or authenticated Docker bridge as
+the job-search agent. The generator sends only the selected job and relevant
+candidate profile fields, disables web search, and validates the response
+against a Pydantic schema. If Codex cannot run, the backend saves a
+deterministic draft so the user remains unblocked. Generated letters are saved
+under the parent workspace at `output/cover_letters/`; review every letter
+before using it.
 
 ## API endpoints
 

@@ -188,7 +188,7 @@ export function Dashboard() {
       <Dialog open={coverLetterOpen} onOpenChange={setCoverLetterOpen}>
         <DialogContent>
           <div className="pr-10">
-            <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#61756b] dark:text-[#9eb3a8]">{coverLetter?.mode === 'openai' ? 'AI-generated draft' : coverLetter?.mode === 'local' ? 'Local draft' : 'Preview draft'}</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#61756b] dark:text-[#9eb3a8]">{coverLetter?.mode === 'codex' ? 'Codex-generated draft' : coverLetter?.mode === 'local' ? 'Local draft' : 'Preview draft'}</p>
             <DialogTitle className="mt-2 text-2xl font-semibold tracking-[-0.035em]">Your tailored cover letter</DialogTitle>
             <DialogDescription className="mt-2 text-sm leading-6 text-[#6a776f] dark:text-[#a7b7ae]">Review every statement before using it. The generator is instructed not to invent candidate experience.</DialogDescription>
           </div>
