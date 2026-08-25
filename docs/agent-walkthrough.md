@@ -5,9 +5,14 @@ read, tested, and changed without treating one model response as truth.
 
 ## Source map
 
-- `backend/job_search_agent.py` contains the orchestration loop, OpenAI tool
-  boundary, Pydantic response schemas, hard filters, URL validator, scoring
+- `backend/job_search_agent.py` contains the orchestration loop, Codex gateway,
+  Pydantic response schemas, hard filters, URL validator, scoring
   normalization, and JSON persistence.
+- `backend/codex_runtime.py` resolves the host CLI, probes its availability,
+  launches `codex exec`, optionally calls an authenticated host bridge, and
+  validates the final structured response.
+- `backend/codex_bridge.py` is the narrow Docker-to-host boundary. It accepts
+  a prompt, generated JSON Schema, and search boolean—not arbitrary commands.
 - `backend/agent_service.py` runs the agent in a background thread and records
   an event stream for the UI.
 - `backend/prompts/job_search_agent.md` is the research policy supplied to the
@@ -26,9 +31,10 @@ candidate profile + history + prompt
        (bounded search queries)
                  │
                  ▼
-       2. OpenAI Responses API
-          + built-in web_search
-          + Pydantic output schema
+       2. host Codex CLI
+          + live web search
+          + read-only sandbox
+          + Pydantic JSON Schema
                  │
                  ▼
        3. application-owned checks
@@ -54,11 +60,14 @@ application code.
 
 ## Running it
 
-1. Copy `backend/.env.example` to `backend/.env`.
-2. Set `OPENAI_API_KEY` and optionally change `OPENAI_MODEL`.
-3. Start the Flask API and frontend as described in the README.
-4. Select **Run AI search** in the Inspectable AI agent panel.
-5. Watch the phases update. On completion the new JSON file becomes the latest
+1. Install Codex CLI on the host and sign in with `codex login`.
+2. Confirm `codex --version` works in the terminal that will start Flask.
+3. Copy `backend/.env.example` to `backend/.env`. Set `CODEX_CLI_PATH` only when
+   the executable is not on `PATH`; leave `CODEX_MODEL` blank to use the host
+   default.
+4. Start the Flask API and frontend as described in the README.
+5. Select **Run AI search** in the Inspectable AI agent panel.
+6. Watch the phases update. On completion the new JSON file becomes the latest
    dashboard run.
 
 Useful limits:
@@ -66,18 +75,25 @@ Useful limits:
 ```dotenv
 AGENT_MAX_SEARCH_QUERIES=4
 AGENT_MAX_RESULTS=15
+CODEX_TIMEOUT_SECONDS=600
 ```
 
-Smaller values make learning runs faster and cheaper. Search-tool and model
-usage is billed by the API project associated with the key.
+Smaller values make learning runs faster. The CLI uses the authentication and
+model access already configured for the signed-in host Codex installation.
+
+For Docker, start `python backend/codex_bridge.py` on the host and run Compose
+with `docker compose --env-file backend/.env up --build`. The same long random
+`CODEX_BRIDGE_TOKEN` must reach both processes. The container never receives
+the host's Codex credential files.
 
 ## Why it is an agent
 
 This is more than one text-generation call: the system has a goal, constructs
-a bounded plan, invokes an external research tool, observes results, applies
-application-owned validations, makes a second structured judgment, changes
-durable state, and exposes the execution trace. The orchestration is explicit
-Python, so each capability and failure mode is inspectable.
+a bounded plan, invokes the host Codex agent with an external research tool,
+observes structured results, applies application-owned validations, makes a
+second structured judgment, changes durable state, and exposes the execution
+trace. The orchestration is explicit Python, so each capability and failure
+mode is inspectable.
 
 ## Limitations
 
@@ -85,6 +101,9 @@ Python, so each capability and failure mode is inspectable.
   accepting applications. Ambiguous or blocked pages are rejected or reported.
 - The server does not inherit browser login sessions. Login walls are never
   bypassed.
+- Docker requires the included host bridge because a Linux container cannot
+  directly start a Windows host process. The bridge must remain running for an
+  agent run to complete.
 - The in-process registry assumes one Flask process. A production system with
   multiple replicas should replace it with a durable queue such as Celery/RQ
   plus Redis or a database-backed job table.

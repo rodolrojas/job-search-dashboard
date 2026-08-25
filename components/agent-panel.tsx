@@ -1,4 +1,4 @@
-import { Bot, CheckCircle2, CircleDot, KeyRound, LoaderCircle, Play, SearchCheck, ShieldCheck } from 'lucide-react';
+import { Bot, CheckCircle2, CircleDot, LoaderCircle, Play, SearchCheck, ShieldCheck, SquareTerminal } from 'lucide-react';
 import type { AgentInfo, AgentRun } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -34,7 +34,7 @@ export function AgentPanel({ info, run, backendAvailable, starting, onStart }: A
           </p>
           <h2 className="mt-3 text-2xl font-semibold tracking-[-0.04em] sm:text-3xl">Research a fresh shortlist</h2>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-[#5a6f63] dark:text-[#acc0b5]">
-            The agent plans targeted searches, uses OpenAI web-search tools, validates every direct listing URL and date, scores verified roles against the profile, then writes a new JSON run for this dashboard.
+            The Python agent plans targeted searches, asks the signed-in Codex instance on this machine to research and score, validates every direct listing URL and date, then writes a new JSON run for this dashboard.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-2">
@@ -54,8 +54,8 @@ export function AgentPanel({ info, run, backendAvailable, starting, onStart }: A
               'flex items-center gap-2 text-xs font-medium',
               ready ? 'text-[#3f6753] dark:text-[#9fc9b2]' : 'text-[#806832] dark:text-[#d3b96e]',
             )}>
-              {ready ? <SearchCheck size={15} /> : <KeyRound size={15} />}
-              {!backendAvailable ? 'Start the Flask API to run it' : info?.configured ? `${info.model} · ${info.prompt_file}` : 'Add OPENAI_API_KEY to backend/.env'}
+              {ready ? <SearchCheck size={15} /> : <SquareTerminal size={15} />}
+              {!backendAvailable ? 'Start the Flask API to run it' : info?.configured ? `${info.provider} · ${info.model} · ${info.prompt_file}` : info?.runtime ?? 'Install and sign in to Codex CLI on this machine'}
             </span>
           </div>
 

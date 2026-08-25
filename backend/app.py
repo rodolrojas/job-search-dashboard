@@ -7,14 +7,15 @@ from dotenv import load_dotenv
 from flask import Flask, jsonify, request
 
 from agent_service import AgentRunRegistry
+from codex_runtime import CodexRuntimeStatus, codex_provider_name, codex_runtime_status
 from cover_letters import generate_cover_letter
-from job_search_agent import JobSearchAgent, OpenAIJobGateway
+from job_search_agent import CodexCliJobGateway, JobSearchAgent
 from models import db, model_counts
 from repository import JobRepository
 
 
 HERE = Path(__file__).resolve().parent
-WORKSPACE_ROOT = HERE
+WORKSPACE_ROOT = HERE.parents[1]
 load_dotenv(HERE / ".env")
 
 
@@ -28,7 +29,7 @@ def create_app(test_config: dict | None = None) -> Flask:
     if test_config:
         app.config.update(test_config)
 
-    data_root = Path(app.config.get("DATA_ROOT", WORKSPACE_ROOT))
+    data_root = Path(app.config.get("DATA_ROOT") or os.getenv("DATA_ROOT") or WORKSPACE_ROOT)
     repository = JobRepository(data_root)
     app.extensions["job_repository"] = repository
     db.init_app(app)
@@ -45,11 +46,23 @@ def create_app(test_config: dict | None = None) -> Flask:
     )
 
     def create_agent() -> JobSearchAgent:
+        gateway_factory = app.config.get("AGENT_GATEWAY_FACTORY")
+        gateway = (
+            gateway_factory()
+            if gateway_factory
+            else CodexCliJobGateway(
+                workspace=Path(app.config.get("CODEX_WORKSPACE", HERE.parent)),
+            )
+        )
         return JobSearchAgent(
             repository=repository,
-            gateway=OpenAIJobGateway(),
+            gateway=gateway,
             prompt_path=prompt_path,
         )
+
+    def runtime_status() -> CodexRuntimeStatus:
+        status_factory = app.config.get("CODEX_STATUS_FACTORY")
+        return status_factory() if status_factory else codex_runtime_status()
 
     def sync_after_agent(_result: dict) -> None:
         with app.app_context():
@@ -92,10 +105,14 @@ def create_app(test_config: dict | None = None) -> Flask:
 
     @app.get("/api/agent")
     def agent_info():
+        status = runtime_status()
         return jsonify(
             {
-                "configured": bool(os.getenv("OPENAI_API_KEY")),
-                "model": os.getenv("OPENAI_MODEL", "gpt-5.4"),
+                "configured": status.available,
+                "provider": codex_provider_name(),
+                "model": os.getenv("CODEX_MODEL") or ("host bridge default" if os.getenv("CODEX_BRIDGE_URL") else "host default"),
+                "runtime": status.message,
+                "runtime_version": status.version,
                 "prompt_file": prompt_path.name,
                 "workflow": ["plan", "research", "validate", "score", "persist"],
                 "latest_run": agent_runs.latest(),
@@ -110,8 +127,9 @@ def create_app(test_config: dict | None = None) -> Flask:
 
     @app.post("/api/agent/runs")
     def start_agent_run():
-        if not os.getenv("OPENAI_API_KEY"):
-            return jsonify({"error": "Set OPENAI_API_KEY in backend/.env before starting the agent."}), 503
+        status = runtime_status()
+        if not status.available:
+            return jsonify({"error": status.message}), 503
         try:
             run = agent_runs.start()
         except RuntimeError as error:
@@ -157,7 +175,7 @@ def create_app(test_config: dict | None = None) -> Flask:
             job=job,
             profile=repository.load_profile(),
             variant_key=variant_key,
-            output_root=WORKSPACE_ROOT / "output" / "cover_letters",
+            output_root=data_root / "output" / "cover_letters",
         )
         return jsonify(result)
 

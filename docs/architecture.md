@@ -24,9 +24,13 @@ flowchart LR
   API --> Runner[Agent run registry]
   Runner --> Agent[Job-search orchestrator]
   Agent --> Plan[Bounded query plan]
-  Agent --> Web[OpenAI web_search tool]
+  Agent --> Runtime[Codex runtime adapter]
+  Runtime -->|local backend| Codex[Host Codex CLI in read-only mode]
+  Runtime -->|Docker backend| Bridge[Authenticated host bridge]
+  Bridge --> Codex
+  Codex --> Web[Live web search]
   Agent --> Validate[URL, date, history validation]
-  Agent --> Score[Structured profile scoring]
+  Codex --> Score[Schema-validated profile scoring]
   Agent --> Persist[Atomic job-search JSON run]
   Persist --> Runs
   API --> Cover[Cover-letter agent]
@@ -43,9 +47,15 @@ flowchart LR
 - The Next.js frontend presents the shortlist, composes filters, and sends explicit user actions to the API.
 - The Flask API owns data normalization, durable status changes, cover-letter generation, and access to candidate profile data.
 - Existing JSON files remain the portable source of truth. SQLAlchemy builds a queryable local index without replacing them.
-- The job-search orchestrator makes research calls through the OpenAI Responses
-  API, but ordinary Python code owns query limits, history exclusion, URL/date
-  validation, score normalization, resume allowlisting, and persistence.
+- The job-search orchestrator invokes the signed-in host Codex CLI through
+  `codex exec`. Prompts travel over stdin and final results are constrained by
+  generated Pydantic JSON Schemas. No OpenAI API key is read by this workflow.
+- When Flask runs in Docker, its runtime adapter sends only the prompt, output
+  schema, and search flag to an authenticated bridge on the host. The bridge
+  does not accept arbitrary commands, paths, or sandbox settings.
+- Codex runs with a read-only sandbox and approvals disabled. Ordinary Python
+  code still owns query limits, history exclusion, URL/date validation, score
+  normalization, resume allowlisting, and persistence.
 - Every agent phase is recorded in an in-process run registry and exposed to the
   frontend. This makes the execution trace inspectable without exposing hidden
   reasoning.
