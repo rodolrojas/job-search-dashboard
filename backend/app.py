@@ -12,7 +12,7 @@ from repository import JobRepository
 
 
 HERE = Path(__file__).resolve().parent
-WORKSPACE_ROOT = HERE.parents[1]
+WORKSPACE_ROOT = HERE
 load_dotenv(HERE / ".env")
 
 

@@ -1,0 +1,545 @@
+[
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "generate_cover_letter",
+        "importPath": "cover_letters",
+        "description": "cover_letters",
+        "isExtraImport": true,
+        "detail": "cover_letters",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "model_counts",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "CandidateProfile",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "JobApplication",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "JobExclusion",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "JobListing",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "JobRepository",
+        "importPath": "repository",
+        "description": "repository",
+        "isExtraImport": true,
+        "detail": "repository",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "UTC",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Iterable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "SQLAlchemy",
+        "importPath": "flask_sqlalchemy",
+        "description": "flask_sqlalchemy",
+        "isExtraImport": true,
+        "detail": "flask_sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Boolean",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Date",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "DateTime",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Text",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "DeclarativeBase",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Mapped",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "mapped_column",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "threading",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "threading",
+        "description": "threading",
+        "detail": "threading",
+        "documentation": {}
+    },
+    {
+        "label": "test_health_reports_imported_models",
+        "kind": 2,
+        "importPath": "backend.tests.test_api",
+        "description": "backend.tests.test_api",
+        "peekOfCode": "def test_health_reports_imported_models():\n    app = create_app({\"TESTING\": True, \"SQLALCHEMY_DATABASE_URI\": \"sqlite:///:memory:\"})\n    client = app.test_client()\n    response = client.get(\"/api/health\")\n    assert response.status_code == 200\n    payload = response.get_json()\n    assert payload[\"status\"] == \"ok\"\n    assert payload[\"models\"][\"jobs\"] > 0\ndef test_dashboard_exposes_jobs_and_summary():\n    app = create_app({\"TESTING\": True, \"SQLALCHEMY_DATABASE_URI\": \"sqlite:///:memory:\"})",
+        "detail": "backend.tests.test_api",
+        "documentation": {}
+    },
+    {
+        "label": "test_dashboard_exposes_jobs_and_summary",
+        "kind": 2,
+        "importPath": "backend.tests.test_api",
+        "description": "backend.tests.test_api",
+        "peekOfCode": "def test_dashboard_exposes_jobs_and_summary():\n    app = create_app({\"TESTING\": True, \"SQLALCHEMY_DATABASE_URI\": \"sqlite:///:memory:\"})\n    response = app.test_client().get(\"/api/dashboard\")\n    assert response.status_code == 200\n    payload = response.get_json()\n    assert len(payload[\"jobs\"]) >= 7\n    assert payload[\"summary\"][\"passed_all_filters\"] >= len(payload[\"jobs\"])\ndef test_job_filters_are_composable():\n    app = create_app({\"TESTING\": True, \"SQLALCHEMY_DATABASE_URI\": \"sqlite:///:memory:\"})\n    response = app.test_client().get(\"/api/jobs?search=node&min_score=80&sort=score_desc\")",
+        "detail": "backend.tests.test_api",
+        "documentation": {}
+    },
+    {
+        "label": "test_job_filters_are_composable",
+        "kind": 2,
+        "importPath": "backend.tests.test_api",
+        "description": "backend.tests.test_api",
+        "peekOfCode": "def test_job_filters_are_composable():\n    app = create_app({\"TESTING\": True, \"SQLALCHEMY_DATABASE_URI\": \"sqlite:///:memory:\"})\n    response = app.test_client().get(\"/api/jobs?search=node&min_score=80&sort=score_desc\")\n    assert response.status_code == 200\n    payload = response.get_json()\n    assert all(item[\"score\"] >= 80 for item in payload[\"jobs\"])\n    assert payload[\"jobs\"] == sorted(payload[\"jobs\"], key=lambda item: item[\"score\"], reverse=True)",
+        "detail": "backend.tests.test_api",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "kind": 2,
+        "importPath": "backend.app",
+        "description": "backend.app",
+        "peekOfCode": "def create_app(test_config: dict | None = None) -> Flask:\n    app = Flask(__name__)\n    app.config.update(\n        SQLALCHEMY_DATABASE_URI=f\"sqlite:///{(HERE / 'role_radar.db').as_posix()}\",\n        SQLALCHEMY_TRACK_MODIFICATIONS=False,\n        JSON_SORT_KEYS=False,\n    )\n    if test_config:\n        app.config.update(test_config)\n    data_root = Path(app.config.get(\"DATA_ROOT\", WORKSPACE_ROOT))",
+        "detail": "backend.app",
+        "documentation": {}
+    },
+    {
+        "label": "HERE",
+        "kind": 5,
+        "importPath": "backend.app",
+        "description": "backend.app",
+        "peekOfCode": "HERE = Path(__file__).resolve().parent\nWORKSPACE_ROOT = HERE\nload_dotenv(HERE / \".env\")\ndef create_app(test_config: dict | None = None) -> Flask:\n    app = Flask(__name__)\n    app.config.update(\n        SQLALCHEMY_DATABASE_URI=f\"sqlite:///{(HERE / 'role_radar.db').as_posix()}\",\n        SQLALCHEMY_TRACK_MODIFICATIONS=False,\n        JSON_SORT_KEYS=False,\n    )",
+        "detail": "backend.app",
+        "documentation": {}
+    },
+    {
+        "label": "WORKSPACE_ROOT",
+        "kind": 5,
+        "importPath": "backend.app",
+        "description": "backend.app",
+        "peekOfCode": "WORKSPACE_ROOT = HERE\nload_dotenv(HERE / \".env\")\ndef create_app(test_config: dict | None = None) -> Flask:\n    app = Flask(__name__)\n    app.config.update(\n        SQLALCHEMY_DATABASE_URI=f\"sqlite:///{(HERE / 'role_radar.db').as_posix()}\",\n        SQLALCHEMY_TRACK_MODIFICATIONS=False,\n        JSON_SORT_KEYS=False,\n    )\n    if test_config:",
+        "detail": "backend.app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "backend.app",
+        "description": "backend.app",
+        "peekOfCode": "app = create_app()\nif __name__ == \"__main__\":\n    app.run(host=\"127.0.0.1\", port=int(os.getenv(\"FLASK_PORT\", \"5000\")), debug=True)",
+        "detail": "backend.app",
+        "documentation": {}
+    },
+    {
+        "label": "generate_cover_letter",
+        "kind": 2,
+        "importPath": "backend.cover_letters",
+        "description": "backend.cover_letters",
+        "peekOfCode": "def generate_cover_letter(\n    job: dict[str, Any],\n    profile: dict[str, Any],\n    variant_key: str,\n    output_root: Path,\n) -> dict[str, Any]:\n    mode = \"local\"\n    content = _local_letter(job, profile, variant_key)\n    warning: str | None = None\n    if os.getenv(\"OPENAI_API_KEY\"):",
+        "detail": "backend.cover_letters",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 6,
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "peekOfCode": "class Base(DeclarativeBase):\n    pass\ndb = SQLAlchemy(model_class=Base)\nclass JobListing(db.Model):\n    __tablename__ = \"job_listings\"\n    id: Mapped[str] = mapped_column(String(180), primary_key=True)\n    role: Mapped[str] = mapped_column(String(240), index=True)\n    company: Mapped[str] = mapped_column(String(180), index=True)\n    location: Mapped[str] = mapped_column(String(240), index=True)\n    score: Mapped[int] = mapped_column(Integer, index=True)",
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "JobListing",
+        "kind": 6,
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "peekOfCode": "class JobListing(db.Model):\n    __tablename__ = \"job_listings\"\n    id: Mapped[str] = mapped_column(String(180), primary_key=True)\n    role: Mapped[str] = mapped_column(String(240), index=True)\n    company: Mapped[str] = mapped_column(String(180), index=True)\n    location: Mapped[str] = mapped_column(String(240), index=True)\n    score: Mapped[int] = mapped_column(Integer, index=True)\n    posted_on: Mapped[date | None] = mapped_column(Date, nullable=True)\n    is_new: Mapped[bool] = mapped_column(Boolean, default=False)\n    run_file: Mapped[str] = mapped_column(String(240), index=True)",
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "CandidateProfile",
+        "kind": 6,
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "peekOfCode": "class CandidateProfile(db.Model):\n    __tablename__ = \"candidate_profiles\"\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, default=1)\n    display_name: Mapped[str] = mapped_column(String(180))\n    raw_json: Mapped[str] = mapped_column(Text)\n    imported_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(UTC))\nclass JobApplication(db.Model):\n    __tablename__ = \"job_applications\"\n    id: Mapped[str] = mapped_column(String(220), primary_key=True)\n    job_id: Mapped[str] = mapped_column(String(180), index=True)",
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "JobApplication",
+        "kind": 6,
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "peekOfCode": "class JobApplication(db.Model):\n    __tablename__ = \"job_applications\"\n    id: Mapped[str] = mapped_column(String(220), primary_key=True)\n    job_id: Mapped[str] = mapped_column(String(180), index=True)\n    company: Mapped[str] = mapped_column(String(180))\n    role: Mapped[str] = mapped_column(String(240))\n    status: Mapped[str] = mapped_column(String(80), index=True)\n    applied_on: Mapped[date | None] = mapped_column(Date, nullable=True)\n    raw_json: Mapped[str] = mapped_column(Text)\nclass JobExclusion(db.Model):",
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "JobExclusion",
+        "kind": 6,
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "peekOfCode": "class JobExclusion(db.Model):\n    __tablename__ = \"job_exclusions\"\n    id: Mapped[str] = mapped_column(String(220), primary_key=True)\n    job_id: Mapped[str] = mapped_column(String(180), index=True)\n    company: Mapped[str] = mapped_column(String(180))\n    role: Mapped[str] = mapped_column(String(240))\n    reason: Mapped[str] = mapped_column(Text)\n    keep_out: Mapped[bool] = mapped_column(Boolean, default=True)\n    excluded_on: Mapped[date | None] = mapped_column(Date, nullable=True)\n    raw_json: Mapped[str] = mapped_column(Text)",
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "model_counts",
+        "kind": 2,
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "peekOfCode": "def model_counts() -> dict[str, Any]:\n    return {\n        \"jobs\": db.session.query(JobListing).count(),\n        \"profiles\": db.session.query(CandidateProfile).count(),\n        \"applications\": db.session.query(JobApplication).count(),\n        \"exclusions\": db.session.query(JobExclusion).count(),\n    }",
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "kind": 5,
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "peekOfCode": "db = SQLAlchemy(model_class=Base)\nclass JobListing(db.Model):\n    __tablename__ = \"job_listings\"\n    id: Mapped[str] = mapped_column(String(180), primary_key=True)\n    role: Mapped[str] = mapped_column(String(240), index=True)\n    company: Mapped[str] = mapped_column(String(180), index=True)\n    location: Mapped[str] = mapped_column(String(240), index=True)\n    score: Mapped[int] = mapped_column(Integer, index=True)\n    posted_on: Mapped[date | None] = mapped_column(Date, nullable=True)\n    is_new: Mapped[bool] = mapped_column(Boolean, default=False)",
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "JobRepository",
+        "kind": 6,
+        "importPath": "backend.repository",
+        "description": "backend.repository",
+        "peekOfCode": "class JobRepository:\n    def __init__(self, data_root: Path):\n        self.data_root = data_root\n        self.applications_path = data_root / \"job_applications.json\"\n        self.exclusions_path = data_root / \"job_exclusions.json\"\n        self.profile_path = data_root / \"resume\" / \"resume-data.json\"\n    def run_files(self) -> list[Path]:\n        candidates = [\n            path\n            for path in self.data_root.glob(\"job_search_*.json\")",
+        "detail": "backend.repository",
+        "documentation": {}
+    },
+    {
+        "label": "JSONDict",
+        "kind": 5,
+        "importPath": "backend.repository",
+        "description": "backend.repository",
+        "peekOfCode": "JSONDict = dict[str, Any]\n_WRITE_LOCK = threading.Lock()\n_DATE_RE = re.compile(r\"job_search_(\\d{4}-\\d{2}-\\d{2})(?:-rerun(?:-(\\d+))?)?\\.json$\")\ndef _read_json(path: Path, default: JSONDict | None = None) -> JSONDict:\n    if not path.exists():\n        return default or {}\n    with path.open(\"r\", encoding=\"utf-8-sig\") as handle:\n        return json.load(handle)\ndef _atomic_write_json(path: Path, payload: JSONDict) -> None:\n    temp_path = path.with_suffix(path.suffix + \".tmp\")",
+        "detail": "backend.repository",
+        "documentation": {}
+    },
+    {
+        "label": "_WRITE_LOCK",
+        "kind": 5,
+        "importPath": "backend.repository",
+        "description": "backend.repository",
+        "peekOfCode": "_WRITE_LOCK = threading.Lock()\n_DATE_RE = re.compile(r\"job_search_(\\d{4}-\\d{2}-\\d{2})(?:-rerun(?:-(\\d+))?)?\\.json$\")\ndef _read_json(path: Path, default: JSONDict | None = None) -> JSONDict:\n    if not path.exists():\n        return default or {}\n    with path.open(\"r\", encoding=\"utf-8-sig\") as handle:\n        return json.load(handle)\ndef _atomic_write_json(path: Path, payload: JSONDict) -> None:\n    temp_path = path.with_suffix(path.suffix + \".tmp\")\n    with temp_path.open(\"w\", encoding=\"utf-8\") as handle:",
+        "detail": "backend.repository",
+        "documentation": {}
+    },
+    {
+        "label": "_DATE_RE",
+        "kind": 5,
+        "importPath": "backend.repository",
+        "description": "backend.repository",
+        "peekOfCode": "_DATE_RE = re.compile(r\"job_search_(\\d{4}-\\d{2}-\\d{2})(?:-rerun(?:-(\\d+))?)?\\.json$\")\ndef _read_json(path: Path, default: JSONDict | None = None) -> JSONDict:\n    if not path.exists():\n        return default or {}\n    with path.open(\"r\", encoding=\"utf-8-sig\") as handle:\n        return json.load(handle)\ndef _atomic_write_json(path: Path, payload: JSONDict) -> None:\n    temp_path = path.with_suffix(path.suffix + \".tmp\")\n    with temp_path.open(\"w\", encoding=\"utf-8\") as handle:\n        json.dump(payload, handle, indent=2, ensure_ascii=False)",
+        "detail": "backend.repository",
+        "documentation": {}
+    }
+]
