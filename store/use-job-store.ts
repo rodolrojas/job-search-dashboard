@@ -1,9 +1,10 @@
 'use client';
 
+import axios from 'axios';
 import { useSyncExternalStore } from 'react';
 import { createStore } from 'zustand/vanilla';
 import { api } from '@/lib/api';
-import type { CoverLetterResult, DashboardData, JobFilters, JobStatus } from '@/lib/types';
+import type { AgentInfo, AgentRun, CoverLetterResult, DashboardData, JobFilters, JobStatus } from '@/lib/types';
 import { demoDashboard } from '@/data/demo-dashboard';
 
 interface JobStore {
@@ -15,11 +16,16 @@ interface JobStore {
   notice?: string;
   coverLetter?: CoverLetterResult;
   coverLetterOpen: boolean;
+  agentInfo?: AgentInfo;
+  agentRun?: AgentRun;
+  agentStarting: boolean;
   load: () => Promise<void>;
   setFilter: <K extends keyof JobFilters>(key: K, value: JobFilters[K]) => void;
   clearFilters: () => void;
   updateStatus: (jobId: string, status: Exclude<JobStatus, 'available'>) => Promise<void>;
   generateCoverLetter: (jobId: string, resumeVariant: string) => Promise<void>;
+  startAgent: () => Promise<void>;
+  pollAgent: (runId: string) => Promise<void>;
   setCoverLetterOpen: (open: boolean) => void;
 }
 
@@ -38,11 +44,27 @@ const jobStore = createStore<JobStore>((set, get) => ({
   loading: true,
   backendAvailable: false,
   coverLetterOpen: false,
+  agentStarting: false,
   async load() {
     set({ loading: true, notice: undefined });
     try {
       const response = await api.get<DashboardData>('/dashboard');
-      set({ data: response.data, backendAvailable: true, loading: false });
+      let agentInfo: AgentInfo | undefined;
+      try {
+        agentInfo = (await api.get<AgentInfo>('/agent')).data;
+      } catch {
+        agentInfo = undefined;
+      }
+      set({
+        data: response.data,
+        backendAvailable: true,
+        loading: false,
+        agentInfo,
+        agentRun: agentInfo?.latest_run,
+      });
+      if (agentInfo?.latest_run && ['queued', 'running'].includes(agentInfo.latest_run.status)) {
+        window.setTimeout(() => void get().pollAgent(agentInfo.latest_run!.id), 1200);
+      }
     } catch {
       set({
         data: demoDashboard,
@@ -101,6 +123,44 @@ const jobStore = createStore<JobStore>((set, get) => ({
       set({ notice: 'The cover letter could not be generated. Check the backend configuration and try again.' });
     } finally {
       set({ mutatingJobId: undefined });
+    }
+  },
+  async startAgent() {
+    if (!get().backendAvailable) {
+      set({ notice: 'The job-search agent requires the Flask service.' });
+      return;
+    }
+    set({ agentStarting: true, notice: undefined });
+    try {
+      const response = await api.post<AgentRun>('/agent/runs');
+      set({ agentRun: response.data, agentStarting: false, notice: 'The AI job-search agent has started.' });
+      window.setTimeout(() => void get().pollAgent(response.data.id), 1000);
+    } catch (error) {
+      const apiMessage = axios.isAxiosError<{ error?: string }>(error) ? error.response?.data?.error : undefined;
+      const message = apiMessage || (error instanceof Error ? error.message : 'Unknown error');
+      set({ agentStarting: false, notice: `The agent could not start: ${message}` });
+    }
+  },
+  async pollAgent(runId) {
+    try {
+      const response = await api.get<AgentRun>(`/agent/runs/${encodeURIComponent(runId)}`);
+      const run = response.data;
+      set({ agentRun: run });
+      if (['queued', 'running'].includes(run.status)) {
+        window.setTimeout(() => void get().pollAgent(runId), 1800);
+        return;
+      }
+      if (run.status === 'completed') {
+        const dashboard = await api.get<DashboardData>('/dashboard');
+        set({
+          data: dashboard.data,
+          notice: `Agent completed with ${run.result?.result_count ?? 0} verified recommendations.`,
+        });
+      } else if (run.status === 'failed') {
+        set({ notice: run.error || 'The agent run failed. Inspect its activity log for details.' });
+      }
+    } catch {
+      set({ notice: 'Agent progress could not be refreshed.' });
     }
   },
   setCoverLetterOpen(open) {

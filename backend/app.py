@@ -6,7 +6,9 @@ from pathlib import Path
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request
 
+from agent_service import AgentRunRegistry
 from cover_letters import generate_cover_letter
+from job_search_agent import JobSearchAgent, OpenAIJobGateway
 from models import db, model_counts
 from repository import JobRepository
 
@@ -34,6 +36,27 @@ def create_app(test_config: dict | None = None) -> Flask:
     with app.app_context():
         db.create_all()
         repository.sync_database()
+
+    prompt_path = Path(
+        app.config.get(
+            "AGENT_PROMPT_PATH",
+            data_root / "job listing agent.md" if (data_root / "job listing agent.md").exists() else HERE / "prompts" / "job_search_agent.md",
+        )
+    )
+
+    def create_agent() -> JobSearchAgent:
+        return JobSearchAgent(
+            repository=repository,
+            gateway=OpenAIJobGateway(),
+            prompt_path=prompt_path,
+        )
+
+    def sync_after_agent(_result: dict) -> None:
+        with app.app_context():
+            repository.sync_database()
+
+    agent_runs = AgentRunRegistry(create_agent, on_complete=sync_after_agent)
+    app.extensions["agent_runs"] = agent_runs
 
     allowed_origins = {
         item.strip()
@@ -66,6 +89,44 @@ def create_app(test_config: dict | None = None) -> Flask:
     @app.get("/api/jobs")
     def jobs():
         return jsonify(repository.filtered_jobs(request.args.to_dict()))
+
+    @app.get("/api/agent")
+    def agent_info():
+        return jsonify(
+            {
+                "configured": bool(os.getenv("OPENAI_API_KEY")),
+                "model": os.getenv("OPENAI_MODEL", "gpt-5.4"),
+                "prompt_file": prompt_path.name,
+                "workflow": ["plan", "research", "validate", "score", "persist"],
+                "latest_run": agent_runs.latest(),
+                "guardrails": [
+                    "Never submits applications",
+                    "Never bypasses login walls or bot protection",
+                    "Requires direct URL and recent-date validation",
+                    "Excludes applied and rejected roles",
+                ],
+            }
+        )
+
+    @app.post("/api/agent/runs")
+    def start_agent_run():
+        if not os.getenv("OPENAI_API_KEY"):
+            return jsonify({"error": "Set OPENAI_API_KEY in backend/.env before starting the agent."}), 503
+        try:
+            run = agent_runs.start()
+        except RuntimeError as error:
+            return jsonify({"error": str(error), "run": agent_runs.latest()}), 409
+        return jsonify(run), 202
+
+    @app.get("/api/agent/runs/latest")
+    def latest_agent_run():
+        run = agent_runs.latest()
+        return (jsonify(run), 200) if run else (jsonify({"error": "No agent run has started."}), 404)
+
+    @app.get("/api/agent/runs/<run_id>")
+    def agent_run(run_id: str):
+        run = agent_runs.get(run_id)
+        return (jsonify(run), 200) if run else (jsonify({"error": "Agent run not found."}), 404)
 
     @app.post("/api/jobs/<job_id>/status")
     def update_status(job_id: str):
@@ -111,5 +172,4 @@ app = create_app()
 
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=int(os.getenv("FLASK_PORT", "5000")), debug=True)
-
+    app.run(host="0.0.0.0", port=int(os.getenv("FLASK_PORT", "5000")), debug=True)

@@ -29,3 +29,14 @@ def test_job_filters_are_composable():
     payload = response.get_json()
     assert all(item["score"] >= 80 for item in payload["jobs"])
     assert payload["jobs"] == sorted(payload["jobs"], key=lambda item: item["score"], reverse=True)
+
+
+def test_agent_endpoint_requires_an_api_key(monkeypatch):
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    app = create_app({"TESTING": True, "SQLALCHEMY_DATABASE_URI": "sqlite:///:memory:"})
+    client = app.test_client()
+    info = client.get("/api/agent")
+    assert info.status_code == 200
+    assert info.get_json()["configured"] is False
+    start = client.post("/api/agent/runs")
+    assert start.status_code == 503

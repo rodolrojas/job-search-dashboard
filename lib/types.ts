@@ -63,3 +63,32 @@ export interface CoverLetterResult {
   saved_to?: string;
 }
 
+export type AgentRunStatus = 'queued' | 'running' | 'completed' | 'failed';
+
+export interface AgentEvent {
+  phase: string;
+  message: string;
+  details?: Record<string, unknown>;
+  created_at: string;
+}
+
+export interface AgentRun {
+  id: string;
+  status: AgentRunStatus;
+  phase: string;
+  message: string;
+  created_at: string;
+  updated_at: string;
+  events: AgentEvent[];
+  result?: { output_file: string; result_count: number };
+  error?: string;
+}
+
+export interface AgentInfo {
+  configured: boolean;
+  model: string;
+  prompt_file: string;
+  workflow: string[];
+  guardrails: string[];
+  latest_run?: AgentRun;
+}
