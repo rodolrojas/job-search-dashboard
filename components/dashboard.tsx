@@ -3,6 +3,7 @@
 import { useEffect, useMemo } from 'react';
 import { BriefcaseBusiness, Check, Clipboard, CloudOff, Download, Moon, RefreshCw, Sparkles, Sun } from 'lucide-react';
 import { Filters } from '@/components/filters';
+import { AgentPanel } from '@/components/agent-panel';
 import { JobCard } from '@/components/job-card';
 import { RunInsights } from '@/components/run-insights';
 import { Button } from '@/components/ui/button';
@@ -20,11 +21,15 @@ export function Dashboard() {
     notice,
     coverLetter,
     coverLetterOpen,
+    agentInfo,
+    agentRun,
+    agentStarting,
     load,
     setFilter,
     clearFilters,
     updateStatus,
     generateCoverLetter,
+    startAgent,
     setCoverLetterOpen,
   } = useJobStore();
 
@@ -128,6 +133,14 @@ export function Dashboard() {
             {notice}
           </div>
         )}
+
+        <AgentPanel
+          info={agentInfo}
+          run={agentRun}
+          backendAvailable={backendAvailable}
+          starting={agentStarting}
+          onStart={() => void startAgent()}
+        />
 
         <section className="mt-8 grid gap-4 lg:grid-cols-3">
           {data.top_three.slice(0, 3).map((pick, index) => (

@@ -12,6 +12,8 @@ It includes:
 - tailored cover-letter generation using the suggested resume variant;
 - optional OpenAI Responses API generation with a truthful local fallback;
 - Flask + SQLAlchemy models for jobs, profile, application history, and exclusions.
+- an inspectable AI job-search agent that plans searches, uses OpenAI web search,
+  validates direct listing URLs, scores profile fit, and persists fresh runs.
 
 ## Project layout
 
@@ -47,6 +49,12 @@ python app.py
 
 The API starts at `http://localhost:5000`. On first launch it finds the newest `job_search_YYYY-MM-DD*.json` file, imports the profile and history JSON files, and builds `backend/role_radar.db` as a local SQLAlchemy index.
 
+To run the job-search agent, set `OPENAI_API_KEY` in `backend/.env`. The agent
+uses `OPENAI_MODEL` (`gpt-5.4` by default), and its cost/latency can be bounded
+with `AGENT_MAX_SEARCH_QUERIES` and `AGENT_MAX_RESULTS`. Then select **Run AI
+search** in the dashboard. See [docs/agent-walkthrough.md](docs/agent-walkthrough.md)
+for a code-level tour of the loop and its trust boundaries.
+
 ## 2. Start the Next.js frontend
 
 From `job-search-dashboard` in a second terminal:
@@ -79,6 +87,9 @@ The official SDK reads `OPENAI_API_KEY` from the environment. Generated letters 
 | `GET` | `/api/health` | Service and imported-model counts |
 | `GET` | `/api/dashboard` | Latest run, jobs, summary, recommendations, and comparison |
 | `GET` | `/api/jobs` | Backend filtering and sorting |
+| `GET` | `/api/agent` | Agent configuration, workflow, guardrails, and latest run |
+| `POST` | `/api/agent/runs` | Start a background job-search agent run |
+| `GET` | `/api/agent/runs/:id` | Inspect progress, events, result, or failure |
 | `POST` | `/api/jobs/:id/status` | Mark a role as applied or rejected |
 | `POST` | `/api/jobs/:id/cover-letter` | Generate and save a tailored cover letter |
 
@@ -108,4 +119,5 @@ See [docs/architecture.md](docs/architecture.md) for the full diagram and respon
 - Applied and rejected actions append normalized records to the existing history JSON files.
 - JSON writes are atomic and synchronized inside the local Flask process.
 - The system does **not** submit job applications. It prepares recommendations, resume choices, and cover letters for the user to review and submit.
-
+- Research pages are untrusted input. The agent never uses credentials, bypasses
+  access controls, or accepts a listing without application-owned URL/date checks.
