@@ -13,6 +13,15 @@ services:
             context: ./backend
         ports:
             - "5000:5000"
+        environment:
+            DATA_ROOT: /data
+            CODEX_BRIDGE_URL: ${CODEX_BRIDGE_URL:-http://host.docker.internal:8765}
+            CODEX_BRIDGE_TOKEN: ${CODEX_BRIDGE_TOKEN:-}
+            CODEX_TIMEOUT_SECONDS: ${CODEX_TIMEOUT_SECONDS:-600}
+        volumes:
+            - ../:/data
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
 networks:
     job-search-network:
         driver: bridge

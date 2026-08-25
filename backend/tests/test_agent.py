@@ -18,6 +18,7 @@ from repository import JobRepository
 
 
 class FakeGateway:
+    provider = "Fake structured runtime"
     model = "fake-agent-model"
 
     def research(self, **_kwargs) -> ResearchBatch:
@@ -112,6 +113,7 @@ def test_agent_researches_validates_scores_and_persists(tmp_path: Path):
     assert [phase for phase, _message in events] == ["plan", "research", "validate", "score", "persist", "complete"]
     saved = json.loads((tmp_path / result["output_file"]).read_text(encoding="utf-8"))
     assert saved["agent"]["model"] == "fake-agent-model"
+    assert saved["agent"]["provider"] == "Fake structured runtime"
     assert saved["results"][0]["score"] == 91
     assert saved["results"][0]["suggested_resume"] == "Rodolfo_Rojas_React_Node_CV.pdf"
     assert saved["agent"]["applications_submitted"] == 0

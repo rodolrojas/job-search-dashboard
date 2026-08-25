@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from app import create_app
+from codex_runtime import CodexRuntimeStatus
 
 
 def test_health_reports_imported_models():
@@ -31,12 +32,18 @@ def test_job_filters_are_composable():
     assert payload["jobs"] == sorted(payload["jobs"], key=lambda item: item["score"], reverse=True)
 
 
-def test_agent_endpoint_requires_an_api_key(monkeypatch):
-    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
-    app = create_app({"TESTING": True, "SQLALCHEMY_DATABASE_URI": "sqlite:///:memory:"})
+def test_agent_endpoint_requires_a_runnable_codex_cli():
+    app = create_app(
+        {
+            "TESTING": True,
+            "SQLALCHEMY_DATABASE_URI": "sqlite:///:memory:",
+            "CODEX_STATUS_FACTORY": lambda: CodexRuntimeStatus(False, None, "Codex CLI is unavailable."),
+        }
+    )
     client = app.test_client()
     info = client.get("/api/agent")
     assert info.status_code == 200
     assert info.get_json()["configured"] is False
+    assert info.get_json()["provider"] == "Host Codex CLI"
     start = client.post("/api/agent/runs")
     assert start.status_code == 503

@@ -86,7 +86,10 @@ export interface AgentRun {
 
 export interface AgentInfo {
   configured: boolean;
+  provider: string;
   model: string;
+  runtime: string;
+  runtime_version?: string;
   prompt_file: string;
   workflow: string[];
   guardrails: string[];
