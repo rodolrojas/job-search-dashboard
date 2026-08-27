@@ -4,6 +4,8 @@ import json
 from datetime import date
 from pathlib import Path
 
+from flask import Flask
+
 from job_search_agent import (
     BlockedSource,
     JobSearchAgent,
@@ -14,6 +16,7 @@ from job_search_agent import (
     ScoringBatch,
     UrlValidation,
 )
+from models import db
 from repository import JobRepository
 
 
@@ -95,6 +98,13 @@ def test_agent_researches_validates_scores_and_persists(tmp_path: Path):
     )
     prompt_path = tmp_path / "prompt.md"
     prompt_path.write_text("Research verified senior remote LATAM roles.", encoding="utf-8")
+    app = Flask(__name__)
+    app.config.update(
+        TESTING=True,
+        SQLALCHEMY_DATABASE_URI="sqlite:///:memory:",
+        SQLALCHEMY_TRACK_MODIFICATIONS=False,
+    )
+    db.init_app(app)
     repository = JobRepository(tmp_path)
     events: list[tuple[str, str]] = []
 
@@ -107,11 +117,15 @@ def test_agent_researches_validates_scores_and_persists(tmp_path: Path):
         max_queries=1,
         max_results=7,
     )
-    result = agent.run(lambda phase, message, _details=None: events.append((phase, message)))
+    with app.app_context():
+        db.create_all()
+        repository.bootstrap_from_files()
+        result = agent.run(lambda phase, message, _details=None: events.append((phase, message)))
+        saved = repository.latest_run().raw_json
 
     assert result["result_count"] == 1
     assert [phase for phase, _message in events] == ["plan", "research", "validate", "score", "persist", "complete"]
-    saved = json.loads((tmp_path / result["output_file"]).read_text(encoding="utf-8"))
+    assert not (tmp_path / result["output_file"]).exists()
     assert saved["agent"]["model"] == "fake-agent-model"
     assert saved["agent"]["provider"] == "Fake structured runtime"
     assert saved["results"][0]["score"] == 91

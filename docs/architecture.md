@@ -7,19 +7,20 @@ flowchart LR
   Store --> Client[Axios API client]
   Client --> API[Flask REST API]
 
-  subgraph Data[Existing workspace data]
+  subgraph Legacy[One-time legacy import]
     Runs[Job-search run JSON files]
     Profile[Professional profile JSON]
     History[Applications and exclusions JSON]
     Resumes[Six resume variants and PDFs]
   end
 
-  API --> Repo[JSON repository]
-  Repo --> Runs
-  Repo --> Profile
-  Repo --> History
+  Runs --> Import[Idempotent bootstrap importer]
+  Profile --> Import
+  History --> Import
+  Import --> PG[(PostgreSQL)]
+  API --> Repo[SQLAlchemy repository]
+  Repo --> PG
   Repo --> Resumes
-  Repo --> ORM[(SQLite / SQLAlchemy index)]
 
   API --> Runner[Agent run registry]
   Runner --> Agent[Job-search orchestrator]
@@ -31,12 +32,15 @@ flowchart LR
   Codex --> Web[Live web search]
   Agent --> Validate[URL, date, history validation]
   Codex --> Score[Schema-validated profile scoring]
-  Agent --> Persist[Atomic job-search JSON run]
-  Persist --> Runs
+  Agent --> Persist[Transactional search-run persistence]
+  Persist --> PG
+  Runner --> Audit[Durable run and event audit]
+  Audit --> PG
   API --> Cover[Cover-letter agent]
   Cover --> Runtime
   Cover --> Drafts[Local deterministic fallback]
-  Cover --> Output[Generated cover-letter files]
+  Cover --> PG
+  Cover --> Output[Optional text-file export]
 
   Application[Application assistant] --> Guardrail[Prepare only; never auto-submit]
   API --> Application
@@ -46,7 +50,11 @@ flowchart LR
 
 - The Next.js frontend presents the shortlist, composes filters, and sends explicit user actions to the API.
 - The Flask API owns data normalization, durable status changes, cover-letter generation, and access to candidate profile data.
-- Existing JSON files remain the portable source of truth. SQLAlchemy builds a queryable local index without replacing them.
+- PostgreSQL is the authoritative store for all dynamic application data.
+  Existing workspace JSON files are a one-time bootstrap source when their
+  destination tables are empty.
+- Search runs and their ranked listings are modeled separately, preserving a
+  job's history across multiple runs while keeping one canonical job record.
 - The job-search and cover-letter agents invoke the signed-in host Codex CLI
   through `codex exec`. Prompts travel over stdin and final results are
   constrained by generated Pydantic JSON Schemas. Neither workflow reads an
@@ -57,7 +65,7 @@ flowchart LR
 - Codex runs with a read-only sandbox and approvals disabled. Ordinary Python
   code still owns query limits, history exclusion, URL/date validation, score
   normalization, resume allowlisting, and persistence.
-- Every agent phase is recorded in an in-process run registry and exposed to the
-  frontend. This makes the execution trace inspectable without exposing hidden
-  reasoning.
+- Every agent phase is persisted to PostgreSQL and exposed to the frontend.
+  Interrupted runs are marked failed after a backend restart, keeping the
+  execution trace inspectable without exposing hidden reasoning.
 - Automated application submission is intentionally outside the system boundary. The application assistant may prepare materials, but never submits on the candidate's behalf.
