@@ -358,7 +358,8 @@ class JobSearchAgent:
             result["rank"] = rank
 
         emit("persist", f"Persisting {len(results)} ranked recommendations.", None)
-        output_path = _next_run_path(self.repository.data_root, today)
+        source_file = self.repository.next_run_name(today)
+        output_path = self.repository.data_root / source_file
         payload = _build_run_payload(
             today=today,
             provider=self.gateway.provider,
@@ -371,9 +372,9 @@ class JobSearchAgent:
             blocked=blocked,
             notes=notes,
         )
-        _atomic_write(output_path, payload)
-        emit("complete", f"Saved {output_path.name} with {len(results)} recommendations.", None)
-        return {"output_file": output_path.name, "result_count": len(results), "dashboard": payload}
+        self.repository.save_search_run(payload, source_file)
+        emit("complete", f"Saved {source_file} to PostgreSQL with {len(results)} recommendations.", None)
+        return {"output_file": source_file, "result_count": len(results), "dashboard": payload}
 
 
 def _compact_profile(profile: dict[str, Any]) -> dict[str, Any]:
@@ -449,25 +450,6 @@ def _resume_files(variants: dict[str, Any]) -> dict[str, str]:
         "go": "Rodolfo_Rojas_Go_CV.pdf",
     }
     return {key: files.get(key, f"Rodolfo_Rojas_{key.title()}_CV.pdf") for key in variants} | files
-
-
-def _next_run_path(data_root: Path, today: date) -> Path:
-    base = data_root / f"job_search_{today.isoformat()}.json"
-    if not base.exists():
-        return base
-    rerun = data_root / f"job_search_{today.isoformat()}-rerun.json"
-    if not rerun.exists():
-        return rerun
-    index = 2
-    while (data_root / f"job_search_{today.isoformat()}-rerun-{index}.json").exists():
-        index += 1
-    return data_root / f"job_search_{today.isoformat()}-rerun-{index}.json"
-
-
-def _atomic_write(path: Path, payload: dict[str, Any]) -> None:
-    temp_path = path.with_suffix(path.suffix + ".tmp")
-    temp_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    temp_path.replace(path)
 
 
 def _build_run_payload(

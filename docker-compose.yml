@@ -1,6 +1,25 @@
 name: job-dashboard
 
 services:
+    postgres:
+        image: postgres:17-alpine
+        restart: unless-stopped
+        environment:
+            POSTGRES_DB: ${POSTGRES_DB:-role_radar}
+            POSTGRES_USER: ${POSTGRES_USER:-role_radar}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-role_radar_dev}
+        ports:
+            - "5432:5432"
+        volumes:
+            - postgres-data:/var/lib/postgresql/data
+            - ./backend/schema.sql:/docker-entrypoint-initdb.d/001-role-radar-schema.sql:ro
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+            interval: 5s
+            timeout: 5s
+            retries: 12
+        networks:
+            - job-search-network
     frontend:
         build:
             context: .
@@ -8,13 +27,21 @@ services:
             - "3000:3000"
         depends_on:
             - backend
+        networks:
+            - job-search-network
     backend:
         build:
             context: ./backend
+        restart: unless-stopped
         ports:
             - "5000:5000"
         environment:
             DATA_ROOT: /data
+            DB_HOST: postgres
+            DB_PORT: 5432
+            POSTGRES_DB: ${POSTGRES_DB:-role_radar}
+            POSTGRES_USER: ${POSTGRES_USER:-role_radar}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-role_radar_dev}
             CODEX_BRIDGE_URL: ${CODEX_BRIDGE_URL:-http://host.docker.internal:8765}
             CODEX_BRIDGE_TOKEN: ${CODEX_BRIDGE_TOKEN:-}
             CODEX_TIMEOUT_SECONDS: ${CODEX_TIMEOUT_SECONDS:-600}
@@ -22,6 +49,13 @@ services:
             - ../:/data
         extra_hosts:
             - "host.docker.internal:host-gateway"
+        depends_on:
+            postgres:
+                condition: service_healthy
+        networks:
+            - job-search-network
 networks:
     job-search-network:
         driver: bridge
+volumes:
+    postgres-data:

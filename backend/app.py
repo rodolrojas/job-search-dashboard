@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 from pathlib import Path
+from urllib.parse import quote_plus
 
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request
@@ -15,15 +16,32 @@ from repository import JobRepository
 
 
 HERE = Path(__file__).resolve().parent
-WORKSPACE_ROOT = HERE.parents[1]
+WORKSPACE_ROOT = HERE.parents[1] if len(HERE.parents) > 1 else HERE.parent
 load_dotenv(HERE / ".env")
+
+
+def _database_url() -> str:
+    configured = (os.getenv("DATABASE_URL") or "").strip()
+    if configured:
+        if configured.startswith("postgres://"):
+            return configured.replace("postgres://", "postgresql+psycopg://", 1)
+        if configured.startswith("postgresql://"):
+            return configured.replace("postgresql://", "postgresql+psycopg://", 1)
+        return configured
+    user = quote_plus(os.getenv("POSTGRES_USER", "role_radar"))
+    password = quote_plus(os.getenv("POSTGRES_PASSWORD", "role_radar_dev"))
+    host = os.getenv("DB_HOST", "localhost")
+    port = os.getenv("DB_PORT", "5432")
+    database = quote_plus(os.getenv("POSTGRES_DB", "role_radar"))
+    return f"postgresql+psycopg://{user}:{password}@{host}:{port}/{database}"
 
 
 def create_app(test_config: dict | None = None) -> Flask:
     app = Flask(__name__)
     app.config.update(
-        SQLALCHEMY_DATABASE_URI=f"sqlite:///{(HERE / 'role_radar.db').as_posix()}",
+        SQLALCHEMY_DATABASE_URI=_database_url(),
         SQLALCHEMY_TRACK_MODIFICATIONS=False,
+        SQLALCHEMY_ENGINE_OPTIONS={"pool_pre_ping": True},
         JSON_SORT_KEYS=False,
     )
     if test_config:
@@ -36,7 +54,8 @@ def create_app(test_config: dict | None = None) -> Flask:
 
     with app.app_context():
         db.create_all()
-        repository.sync_database()
+        repository.bootstrap_from_files()
+        initial_agent_runs = repository.load_agent_runs()
 
     prompt_path = Path(
         app.config.get(
@@ -64,11 +83,16 @@ def create_app(test_config: dict | None = None) -> Flask:
         status_factory = app.config.get("CODEX_STATUS_FACTORY")
         return status_factory() if status_factory else codex_runtime_status()
 
-    def sync_after_agent(_result: dict) -> None:
+    def persist_agent_run(snapshot: dict) -> None:
         with app.app_context():
-            repository.sync_database()
+            repository.save_agent_run(snapshot)
 
-    agent_runs = AgentRunRegistry(create_agent, on_complete=sync_after_agent)
+    agent_runs = AgentRunRegistry(
+        create_agent,
+        on_change=persist_agent_run,
+        run_context_factory=app.app_context,
+        initial_runs=initial_agent_runs,
+    )
     app.extensions["agent_runs"] = agent_runs
 
     allowed_origins = {
@@ -93,7 +117,14 @@ def create_app(test_config: dict | None = None) -> Flask:
 
     @app.get("/api/health")
     def health():
-        return jsonify({"status": "ok", "models": model_counts(), "latest_run": repository.latest_run_path().name})
+        return jsonify(
+            {
+                "status": "ok",
+                "storage": db.engine.dialect.name,
+                "models": model_counts(),
+                "latest_run": repository.latest_run_name(),
+            }
+        )
 
     @app.get("/api/dashboard")
     def dashboard():
@@ -158,7 +189,6 @@ def create_app(test_config: dict | None = None) -> Flask:
             record = repository.mark_rejected(job)
         else:
             return jsonify({"error": "Status must be 'applied' or 'rejected'."}), 400
-        repository.sync_database()
         return jsonify({"status": status, "record": record})
 
     @app.post("/api/jobs/<job_id>/cover-letter")
@@ -178,6 +208,7 @@ def create_app(test_config: dict | None = None) -> Flask:
             output_root=data_root / "output" / "cover_letters",
             workspace=Path(app.config.get("CODEX_WORKSPACE", HERE.parent)),
         )
+        result["record_id"] = repository.save_cover_letter(job, variant_key, result)
         return jsonify(result)
 
     @app.errorhandler(FileNotFoundError)
@@ -187,8 +218,6 @@ def create_app(test_config: dict | None = None) -> Flask:
     return app
 
 
-app = create_app()
-
-
 if __name__ == "__main__":
+    app = create_app()
     app.run(host="0.0.0.0", port=int(os.getenv("FLASK_PORT", "5000")), debug=True)

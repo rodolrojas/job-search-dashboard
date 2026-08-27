@@ -4,7 +4,7 @@ WORKDIR /app
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
 	PYTHONUNBUFFERED=1 \
-	FLASK_APP=app.py
+	FLASK_APP=app:create_app
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip \

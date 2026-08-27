@@ -1,6 +1,9 @@
 # Role Radar
 
-Role Radar is a responsive job-search command center built around the existing job-run, professional-profile, application-history, exclusion-history, and resume-variant files in the parent workspace.
+Role Radar is a responsive job-search command center backed by PostgreSQL. On
+the first database startup, it imports the existing job-run,
+professional-profile, application-history, exclusion-history, and
+resume-variant files from the parent workspace.
 
 It includes:
 
@@ -11,7 +14,8 @@ It includes:
 - persistent **Mark as Applied** and **Mark as Rejected** actions;
 - Codex-powered cover-letter generation using the suggested resume variant,
   with a truthful local fallback;
-- Flask + SQLAlchemy models for jobs, profile, application history, and exclusions.
+- PostgreSQL + SQLAlchemy models for search runs, jobs, profile and resume
+  variants, applications, exclusions, cover letters, and agent audit events;
 - an inspectable AI job-search agent that plans searches, invokes the signed-in
   Codex CLI on the host machine for web research and structured scoring,
   validates direct listing URLs, scores profile fit, and persists fresh runs.
@@ -25,7 +29,7 @@ job-search-dashboard/
 ├── data/                Safe preview data for frontend-only hosting
 ├── lib/                 API client, types, and formatting helpers
 ├── store/               Zustand application state
-├── backend/             Flask API, SQLAlchemy models, JSON repository, tests
+├── backend/             Flask API, PostgreSQL models/schema, repository, tests
 ├── docs/                Architecture and project brief
 └── public/              Social preview asset
 ```
@@ -35,21 +39,50 @@ job-search-dashboard/
 - Node.js 22.13 or newer
 - pnpm
 - Python 3.11 or newer
+- Docker Desktop, or a PostgreSQL 17 server
 - [Codex CLI](https://developers.openai.com/codex/cli/reference) installed and signed in on the host machine
 
-## 1. Start the Flask backend
+## 1. Start PostgreSQL and the application with Docker
 
-From `job-search-dashboard/backend`:
+Copy the backend environment file and replace the development database password
+and Codex bridge token before using the stack outside a local machine:
+
+```powershell
+Copy-Item backend/.env.example backend/.env
+docker compose --env-file backend/.env up --build
+```
+
+The stack starts PostgreSQL on `localhost:5432`, Flask on
+`http://localhost:5000`, and the frontend on `http://localhost:3000`.
+PostgreSQL data survives container recreation in the `postgres-data` named
+volume. The database container applies `backend/schema.sql` to a new volume,
+and SQLAlchemy verifies any missing tables at API startup.
+
+The first API startup imports the existing workspace JSON files only when their
+destination tables are empty. From that point onward PostgreSQL is the source
+of truth for job runs, profile data, status changes, generated cover letters,
+and agent execution history.
+
+## 2. Run the Flask backend outside Docker
+
+Start only PostgreSQL from the repository root:
+
+```powershell
+docker compose --env-file backend/.env up -d postgres
+```
+
+Then, from `job-search-dashboard/backend`:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
-Copy-Item .env.example .env
 python app.py
 ```
 
-The API starts at `http://localhost:5000`. On first launch it finds the newest `job_search_YYYY-MM-DD*.json` file, imports the profile and history JSON files, and builds `backend/role_radar.db` as a local SQLAlchemy index.
+The API starts at `http://localhost:5000` and connects to the PostgreSQL
+settings in `backend/.env`. `DATABASE_URL` may be set explicitly; otherwise the
+backend builds the connection from `POSTGRES_*`, `DB_HOST`, and `DB_PORT`.
 
 The job-search and cover-letter agents do not require an API key. They launch
 the host's signed-in `codex exec` runtime in read-only, non-interactive mode. Confirm that
@@ -66,7 +99,7 @@ the loop and its trust boundaries.
 This direct mode expects Flask and Codex CLI on the same operating-system host.
 For a Dockerized backend, use the authenticated host bridge below.
 
-## 2. Start the Next.js frontend
+## 3. Start the Next.js frontend separately
 
 From `job-search-dashboard` in a second terminal:
 
@@ -99,7 +132,8 @@ always launches `codex exec` with a read-only sandbox and no approvals.
    python codex_bridge.py
    ```
 
-3. In another terminal, start Docker with the same environment file:
+3. In another terminal, start Docker with the same environment file. This also
+   starts the persistent PostgreSQL container:
 
    ```powershell
    docker compose --env-file backend/.env up --build
@@ -150,13 +184,17 @@ python -m pytest
 
 ## Architecture
 
-See [docs/architecture.md](docs/architecture.md) for the full diagram and responsibility boundaries.
+See [docs/architecture.md](docs/architecture.md) for the full system diagram
+and [docs/data-model.md](docs/data-model.md) for the PostgreSQL entity model.
 
 ## Data safety and application boundary
 
-- Existing job-run and resume files are read, not rewritten.
-- Applied and rejected actions append normalized records to the existing history JSON files.
-- JSON writes are atomic and synchronized inside the local Flask process.
+- Existing job-run, profile, and history JSON files are read only during the
+  initial database bootstrap and are never rewritten.
+- Applications, exclusions, generated letters, agent events, and new search
+  runs are committed transactionally to PostgreSQL.
+- Resume PDF files remain read-only workspace assets; their variant metadata is
+  stored in PostgreSQL.
 - The system does **not** submit job applications. It prepares recommendations, resume choices, and cover letters for the user to review and submit.
 - Research pages are untrusted input. The agent never uses credentials, bypasses
   access controls, or accepts a listing without application-owned URL/date checks.

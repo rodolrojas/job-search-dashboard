@@ -3,9 +3,10 @@ from __future__ import annotations
 import threading
 import uuid
 from collections.abc import Callable
+from contextlib import nullcontext
 from copy import deepcopy
 from datetime import UTC, datetime
-from typing import Any
+from typing import Any, ContextManager
 
 from job_search_agent import JobSearchAgent
 
@@ -17,12 +18,21 @@ class AgentRunRegistry:
         self,
         agent_factory: Callable[[], JobSearchAgent],
         on_complete: Callable[[dict[str, Any]], None] | None = None,
+        on_change: Callable[[dict[str, Any]], None] | None = None,
+        run_context_factory: Callable[[], ContextManager[Any]] | None = None,
+        initial_runs: list[dict[str, Any]] | None = None,
     ):
         self.agent_factory = agent_factory
         self.on_complete = on_complete
+        self.on_change = on_change
+        self.run_context_factory = run_context_factory
         self._lock = threading.Lock()
-        self._runs: dict[str, dict[str, Any]] = {}
-        self._latest_id: str | None = None
+        self._runs = {run["id"]: deepcopy(run) for run in (initial_runs or [])}
+        self._latest_id = max(
+            self._runs,
+            key=lambda run_id: self._runs[run_id].get("created_at", ""),
+            default=None,
+        )
 
     def start(self) -> dict[str, Any]:
         with self._lock:
@@ -42,8 +52,10 @@ class AgentRunRegistry:
                 "error": None,
             }
             self._latest_id = run_id
+            snapshot = deepcopy(self._runs[run_id])
+        self._notify(snapshot)
         threading.Thread(target=self._execute, args=(run_id,), daemon=True, name=f"job-agent-{run_id[:8]}").start()
-        return self.get(run_id) or {}
+        return snapshot
 
     def get(self, run_id: str) -> dict[str, Any] | None:
         with self._lock:
@@ -61,13 +73,17 @@ class AgentRunRegistry:
             now = datetime.now(UTC).isoformat()
             run.update(status="running", phase=phase, message=message, updated_at=now)
             run["events"].append({"phase": phase, "message": message, "details": details, "created_at": now})
+            snapshot = deepcopy(run)
+        self._notify(snapshot)
 
     def _execute(self, run_id: str) -> None:
         try:
-            agent = self.agent_factory()
-            result = agent.run(lambda phase, message, details=None: self._emit(run_id, phase, message, details))
-            if self.on_complete:
-                self.on_complete(result)
+            context = self.run_context_factory() if self.run_context_factory else nullcontext()
+            with context:
+                agent = self.agent_factory()
+                result = agent.run(lambda phase, message, details=None: self._emit(run_id, phase, message, details))
+                if self.on_complete:
+                    self.on_complete(result)
             with self._lock:
                 now = datetime.now(UTC).isoformat()
                 self._runs[run_id].update(
@@ -77,6 +93,8 @@ class AgentRunRegistry:
                     result=result,
                     updated_at=now,
                 )
+                snapshot = deepcopy(self._runs[run_id])
+            self._notify(snapshot)
         except Exception as error:  # Run state must survive failures for UI inspection.
             with self._lock:
                 now = datetime.now(UTC).isoformat()
@@ -87,3 +105,9 @@ class AgentRunRegistry:
                     error=f"{type(error).__name__}: {error}",
                     updated_at=now,
                 )
+                snapshot = deepcopy(self._runs[run_id])
+            self._notify(snapshot)
+
+    def _notify(self, snapshot: dict[str, Any]) -> None:
+        if self.on_change:
+            self.on_change(snapshot)
