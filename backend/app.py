@@ -137,6 +137,8 @@ def create_app(test_config: dict | None = None) -> Flask:
     @app.get("/api/agent")
     def agent_info():
         status = runtime_status()
+        print(f"[agent] runtime status: {status}", flush=True)
+        
         return jsonify(
             {
                 "configured": status.available,
