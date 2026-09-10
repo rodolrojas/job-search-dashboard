@@ -13,7 +13,7 @@ class ExampleResult(BaseModel):
     answer: str
 
 
-def test_codex_runner_uses_stdin_read_only_mode_and_structured_output(tmp_path: Path):
+def test_codex_runner_uses_stdin_read_only_mode_structured_output_and_supported_flags(tmp_path: Path):
     captured: dict[str, object] = {}
     fake_codex = tmp_path / "codex-test-bin"
     fake_codex.write_text("test executable placeholder", encoding="utf-8")
@@ -45,7 +45,7 @@ def test_codex_runner_uses_stdin_read_only_mode_and_structured_output(tmp_path: 
     assert captured["prompt"] == "Research one role."
     assert captured["schema"]["title"] == "ExampleResult"
     assert command[-1] == "-"
-    assert "--search" in command
+    assert "--search" not in command
     assert command[command.index("--sandbox") + 1] == "read-only"
     assert command[command.index("--ask-for-approval") + 1] == "never"
     assert command[command.index("--model") + 1] == "test-model"

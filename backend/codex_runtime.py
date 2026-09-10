@@ -200,8 +200,6 @@ class CodexCliRunner:
                 "--output-last-message",
                 str(result_path),
             ]
-            if enable_search:
-                command.append("--search")
             if self.model_override:
                 command.extend(["--model", self.model_override])
             command.append("-")
