@@ -40,148 +40,75 @@
         "documentation": {}
     },
     {
-        "label": "create_app",
-        "importPath": "app",
-        "description": "app",
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
         "isExtraImport": true,
-        "detail": "app",
+        "detail": "__future__",
         "documentation": {}
     },
     {
-        "label": "os",
-        "kind": 6,
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
         "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
+        "detail": "__future__",
         "documentation": {}
     },
     {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
         "isExtraImport": true,
-        "detail": "pathlib",
+        "detail": "__future__",
         "documentation": {}
     },
     {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
         "isExtraImport": true,
-        "detail": "pathlib",
+        "detail": "__future__",
         "documentation": {}
     },
     {
-        "label": "Path",
-        "importPath": "pathlib",
-        "description": "pathlib",
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
         "isExtraImport": true,
-        "detail": "pathlib",
+        "detail": "__future__",
         "documentation": {}
     },
     {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
         "isExtraImport": true,
-        "detail": "dotenv",
+        "detail": "__future__",
         "documentation": {}
     },
     {
-        "label": "Flask",
-        "importPath": "flask",
-        "description": "flask",
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
         "isExtraImport": true,
-        "detail": "flask",
+        "detail": "__future__",
         "documentation": {}
     },
     {
-        "label": "jsonify",
-        "importPath": "flask",
-        "description": "flask",
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
         "isExtraImport": true,
-        "detail": "flask",
+        "detail": "__future__",
         "documentation": {}
     },
     {
-        "label": "request",
-        "importPath": "flask",
-        "description": "flask",
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
         "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "generate_cover_letter",
-        "importPath": "cover_letters",
-        "description": "cover_letters",
-        "isExtraImport": true,
-        "detail": "cover_letters",
-        "documentation": {}
-    },
-    {
-        "label": "db",
-        "importPath": "models",
-        "description": "models",
-        "isExtraImport": true,
-        "detail": "models",
-        "documentation": {}
-    },
-    {
-        "label": "model_counts",
-        "importPath": "models",
-        "description": "models",
-        "isExtraImport": true,
-        "detail": "models",
-        "documentation": {}
-    },
-    {
-        "label": "CandidateProfile",
-        "importPath": "models",
-        "description": "models",
-        "isExtraImport": true,
-        "detail": "models",
-        "documentation": {}
-    },
-    {
-        "label": "JobApplication",
-        "importPath": "models",
-        "description": "models",
-        "isExtraImport": true,
-        "detail": "models",
-        "documentation": {}
-    },
-    {
-        "label": "JobExclusion",
-        "importPath": "models",
-        "description": "models",
-        "isExtraImport": true,
-        "detail": "models",
-        "documentation": {}
-    },
-    {
-        "label": "JobListing",
-        "importPath": "models",
-        "description": "models",
-        "isExtraImport": true,
-        "detail": "models",
-        "documentation": {}
-    },
-    {
-        "label": "db",
-        "importPath": "models",
-        "description": "models",
-        "isExtraImport": true,
-        "detail": "models",
-        "documentation": {}
-    },
-    {
-        "label": "JobRepository",
-        "importPath": "repository",
-        "description": "repository",
-        "isExtraImport": true,
-        "detail": "repository",
+        "detail": "__future__",
         "documentation": {}
     },
     {
@@ -194,12 +121,27 @@
         "documentation": {}
     },
     {
-        "label": "re",
-        "kind": 6,
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
         "isExtraImport": true,
-        "importPath": "re",
-        "description": "re",
-        "detail": "re",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "UTC",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
         "documentation": {}
     },
     {
@@ -235,6 +177,22 @@
         "documentation": {}
     },
     {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "UTC",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "date",
         "importPath": "datetime",
         "description": "datetime",
@@ -251,7 +209,786 @@
         "documentation": {}
     },
     {
+        "label": "UTC",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "BlockedSource",
+        "importPath": "job_search_agent",
+        "description": "job_search_agent",
+        "isExtraImport": true,
+        "detail": "job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "JobSearchAgent",
+        "importPath": "job_search_agent",
+        "description": "job_search_agent",
+        "isExtraImport": true,
+        "detail": "job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "ResearchBatch",
+        "importPath": "job_search_agent",
+        "description": "job_search_agent",
+        "isExtraImport": true,
+        "detail": "job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "ResearchCandidate",
+        "importPath": "job_search_agent",
+        "description": "job_search_agent",
+        "isExtraImport": true,
+        "detail": "job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "ScoreBreakdown",
+        "importPath": "job_search_agent",
+        "description": "job_search_agent",
+        "isExtraImport": true,
+        "detail": "job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "ScoredRecommendation",
+        "importPath": "job_search_agent",
+        "description": "job_search_agent",
+        "isExtraImport": true,
+        "detail": "job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "ScoringBatch",
+        "importPath": "job_search_agent",
+        "description": "job_search_agent",
+        "isExtraImport": true,
+        "detail": "job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "UrlValidation",
+        "importPath": "job_search_agent",
+        "description": "job_search_agent",
+        "isExtraImport": true,
+        "detail": "job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "JobSearchAgent",
+        "importPath": "job_search_agent",
+        "description": "job_search_agent",
+        "isExtraImport": true,
+        "detail": "job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "CodexCliJobGateway",
+        "importPath": "job_search_agent",
+        "description": "job_search_agent",
+        "isExtraImport": true,
+        "detail": "job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "JobSearchAgent",
+        "importPath": "job_search_agent",
+        "description": "job_search_agent",
+        "isExtraImport": true,
+        "detail": "job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "model_counts",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "model_counts",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "AgentRun",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "AgentRunEvent",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "CandidateProfile",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "CoverLetter",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Job",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "JobApplication",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "JobExclusion",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "JobRunListing",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "JobSearchRun",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "ResumeVariant",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "JobRepository",
+        "importPath": "repository",
+        "description": "repository",
+        "isExtraImport": true,
+        "detail": "repository",
+        "documentation": {}
+    },
+    {
+        "label": "JobRepository",
+        "importPath": "repository",
+        "description": "repository",
+        "isExtraImport": true,
+        "detail": "repository",
+        "documentation": {}
+    },
+    {
+        "label": "JobRepository",
+        "importPath": "repository",
+        "description": "repository",
+        "isExtraImport": true,
+        "detail": "repository",
+        "documentation": {}
+    },
+    {
+        "label": "JobRepository",
+        "importPath": "repository",
+        "description": "repository",
+        "isExtraImport": true,
+        "detail": "repository",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "CodexRuntimeStatus",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "CodexRuntimeStatus",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "CodexBridgeRuntime",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "CodexCliRunner",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "CodexRuntimeStatus",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "codex_cli_status",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "CodexRuntimeStatus",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "codex_provider_name",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "codex_runtime_status",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "BRIDGE_TOKEN_PLACEHOLDER",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "CodexCliRunner",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "CodexRuntimeStatus",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "codex_cli_status",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "CodexBridgeRuntime",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "CodexCliRunner",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "create_codex_runtime",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "CodexBridgeRuntime",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "CodexCliRunner",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "create_codex_runtime",
+        "importPath": "codex_runtime",
+        "description": "codex_runtime",
+        "isExtraImport": true,
+        "detail": "codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "create_bridge_app",
+        "importPath": "codex_bridge",
+        "description": "codex_bridge",
+        "isExtraImport": true,
+        "detail": "codex_bridge",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "CoverLetterDraft",
+        "importPath": "cover_letters",
+        "description": "cover_letters",
+        "isExtraImport": true,
+        "detail": "cover_letters",
+        "documentation": {}
+    },
+    {
+        "label": "generate_cover_letter",
+        "importPath": "cover_letters",
+        "description": "cover_letters",
+        "isExtraImport": true,
+        "detail": "cover_letters",
+        "documentation": {}
+    },
+    {
+        "label": "generate_cover_letter",
+        "importPath": "cover_letters",
+        "description": "cover_letters",
+        "isExtraImport": true,
+        "detail": "cover_letters",
+        "documentation": {}
+    },
+    {
+        "label": "threading",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "threading",
+        "description": "threading",
+        "detail": "threading",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "collections.abc",
+        "description": "collections.abc",
+        "isExtraImport": true,
+        "detail": "collections.abc",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "collections.abc",
+        "description": "collections.abc",
+        "isExtraImport": true,
+        "detail": "collections.abc",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "collections.abc",
+        "description": "collections.abc",
+        "isExtraImport": true,
+        "detail": "collections.abc",
+        "documentation": {}
+    },
+    {
+        "label": "Callable",
+        "importPath": "collections.abc",
+        "description": "collections.abc",
+        "isExtraImport": true,
+        "detail": "collections.abc",
+        "documentation": {}
+    },
+    {
+        "label": "nullcontext",
+        "importPath": "contextlib",
+        "description": "contextlib",
+        "isExtraImport": true,
+        "detail": "contextlib",
+        "documentation": {}
+    },
+    {
+        "label": "deepcopy",
+        "importPath": "copy",
+        "description": "copy",
+        "isExtraImport": true,
+        "detail": "copy",
+        "documentation": {}
+    },
+    {
         "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "ContextManager",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "TypeVar",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Protocol",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -283,11 +1020,209 @@
         "documentation": {}
     },
     {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "quote_plus",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "urlparse",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "urlunparse",
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "isExtraImport": true,
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "AgentRunRegistry",
+        "importPath": "agent_service",
+        "description": "agent_service",
+        "isExtraImport": true,
+        "detail": "agent_service",
+        "documentation": {}
+    },
+    {
+        "label": "hmac",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "hmac",
+        "description": "hmac",
+        "detail": "hmac",
+        "documentation": {}
+    },
+    {
+        "label": "shutil",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "shutil",
+        "description": "shutil",
+        "detail": "shutil",
+        "documentation": {}
+    },
+    {
+        "label": "tempfile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tempfile",
+        "description": "tempfile",
+        "detail": "tempfile",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPError",
+        "importPath": "urllib.error",
+        "description": "urllib.error",
+        "isExtraImport": true,
+        "detail": "urllib.error",
+        "documentation": {}
+    },
+    {
+        "label": "URLError",
+        "importPath": "urllib.error",
+        "description": "urllib.error",
+        "isExtraImport": true,
+        "detail": "urllib.error",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPError",
+        "importPath": "urllib.error",
+        "description": "urllib.error",
+        "isExtraImport": true,
+        "detail": "urllib.error",
+        "documentation": {}
+    },
+    {
+        "label": "URLError",
+        "importPath": "urllib.error",
+        "description": "urllib.error",
+        "isExtraImport": true,
+        "detail": "urllib.error",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "urllib.request",
+        "description": "urllib.request",
+        "isExtraImport": true,
+        "detail": "urllib.request",
+        "documentation": {}
+    },
+    {
+        "label": "urlopen",
+        "importPath": "urllib.request",
+        "description": "urllib.request",
+        "isExtraImport": true,
+        "detail": "urllib.request",
+        "documentation": {}
+    },
+    {
+        "label": "Request",
+        "importPath": "urllib.request",
+        "description": "urllib.request",
+        "isExtraImport": true,
+        "detail": "urllib.request",
+        "documentation": {}
+    },
+    {
+        "label": "urlopen",
+        "importPath": "urllib.request",
+        "description": "urllib.request",
+        "isExtraImport": true,
+        "detail": "urllib.request",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "hashlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "hashlib",
+        "description": "hashlib",
+        "detail": "hashlib",
+        "documentation": {}
+    },
+    {
         "label": "SQLAlchemy",
         "importPath": "flask_sqlalchemy",
         "description": "flask_sqlalchemy",
         "isExtraImport": true,
         "detail": "flask_sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "JSON",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "BigInteger",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
         "documentation": {}
     },
     {
@@ -308,6 +1243,22 @@
     },
     {
         "label": "DateTime",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Index",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
         "isExtraImport": true,
@@ -339,6 +1290,30 @@
         "documentation": {}
     },
     {
+        "label": "UniqueConstraint",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "select",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "JSONB",
+        "importPath": "sqlalchemy.dialects.postgresql",
+        "description": "sqlalchemy.dialects.postgresql",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.dialects.postgresql",
+        "documentation": {}
+    },
+    {
         "label": "DeclarativeBase",
         "importPath": "sqlalchemy.orm",
         "description": "sqlalchemy.orm",
@@ -363,12 +1338,29 @@
         "documentation": {}
     },
     {
-        "label": "threading",
-        "kind": 6,
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
         "isExtraImport": true,
-        "importPath": "threading",
-        "description": "threading",
-        "detail": "threading",
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "FakeGateway",
+        "kind": 6,
+        "importPath": "backend.tests.test_agent",
+        "description": "backend.tests.test_agent",
+        "peekOfCode": "class FakeGateway:\n    provider = \"Fake structured runtime\"\n    model = \"fake-agent-model\"\n    def research(self, **_kwargs) -> ResearchBatch:\n        return ResearchBatch(\n            candidates=[\n                ResearchCandidate(\n                    source_name=\"Example Careers\",\n                    role=\"Senior Full Stack Engineer\",\n                    company=\"Example Co\",",
+        "detail": "backend.tests.test_agent",
+        "documentation": {}
+    },
+    {
+        "label": "test_agent_researches_validates_scores_and_persists",
+        "kind": 2,
+        "importPath": "backend.tests.test_agent",
+        "description": "backend.tests.test_agent",
+        "peekOfCode": "def test_agent_researches_validates_scores_and_persists(tmp_path: Path):\n    _write_json(\n        tmp_path / \"resume\" / \"resume-data.json\",\n        {\n            \"basics\": {\"name\": \"Candidate\"},\n            \"skills\": [\"TypeScript\", \"React\", \"Node.js\"],\n            \"variants\": {\"general\": {\"label\": \"General\"}, \"react-node\": {\"label\": \"React + Node\"}},\n        },\n    )\n    _write_json(tmp_path / \"job_applications.json\", {\"applications\": []})",
+        "detail": "backend.tests.test_agent",
         "documentation": {}
     },
     {
@@ -394,8 +1386,134 @@
         "kind": 2,
         "importPath": "backend.tests.test_api",
         "description": "backend.tests.test_api",
-        "peekOfCode": "def test_job_filters_are_composable():\n    app = create_app({\"TESTING\": True, \"SQLALCHEMY_DATABASE_URI\": \"sqlite:///:memory:\"})\n    response = app.test_client().get(\"/api/jobs?search=node&min_score=80&sort=score_desc\")\n    assert response.status_code == 200\n    payload = response.get_json()\n    assert all(item[\"score\"] >= 80 for item in payload[\"jobs\"])\n    assert payload[\"jobs\"] == sorted(payload[\"jobs\"], key=lambda item: item[\"score\"], reverse=True)",
+        "peekOfCode": "def test_job_filters_are_composable():\n    app = create_app({\"TESTING\": True, \"SQLALCHEMY_DATABASE_URI\": \"sqlite:///:memory:\"})\n    response = app.test_client().get(\"/api/jobs?search=node&min_score=80&sort=score_desc\")\n    assert response.status_code == 200\n    payload = response.get_json()\n    assert all(item[\"score\"] >= 80 for item in payload[\"jobs\"])\n    assert payload[\"jobs\"] == sorted(payload[\"jobs\"], key=lambda item: item[\"score\"], reverse=True)\ndef test_agent_endpoint_requires_a_runnable_codex_cli():\n    app = create_app(\n        {",
         "detail": "backend.tests.test_api",
+        "documentation": {}
+    },
+    {
+        "label": "test_agent_endpoint_requires_a_runnable_codex_cli",
+        "kind": 2,
+        "importPath": "backend.tests.test_api",
+        "description": "backend.tests.test_api",
+        "peekOfCode": "def test_agent_endpoint_requires_a_runnable_codex_cli():\n    app = create_app(\n        {\n            \"TESTING\": True,\n            \"SQLALCHEMY_DATABASE_URI\": \"sqlite:///:memory:\",\n            \"CODEX_STATUS_FACTORY\": lambda: CodexRuntimeStatus(False, None, \"Codex CLI is unavailable.\"),\n        }\n    )\n    client = app.test_client()\n    info = client.get(\"/api/agent\")",
+        "detail": "backend.tests.test_api",
+        "documentation": {}
+    },
+    {
+        "label": "FakeCodexRuntime",
+        "kind": 6,
+        "importPath": "backend.tests.test_codex_bridge",
+        "description": "backend.tests.test_codex_bridge",
+        "peekOfCode": "class FakeCodexRuntime:\n    def __init__(self):\n        self.calls: list[dict] = []\n    def run_json(self, **kwargs):\n        self.calls.append(kwargs)\n        return {\"answer\": \"structured host result\"}\ndef test_bridge_requires_token_and_forwards_a_constrained_run():\n    runtime = FakeCodexRuntime()\n    app = create_bridge_app(\n        runtime=runtime,",
+        "detail": "backend.tests.test_codex_bridge",
+        "documentation": {}
+    },
+    {
+        "label": "test_bridge_requires_token_and_forwards_a_constrained_run",
+        "kind": 2,
+        "importPath": "backend.tests.test_codex_bridge",
+        "description": "backend.tests.test_codex_bridge",
+        "peekOfCode": "def test_bridge_requires_token_and_forwards_a_constrained_run():\n    runtime = FakeCodexRuntime()\n    app = create_bridge_app(\n        runtime=runtime,\n        token=\"bridge-secret-0123456789-abcdefghij\",\n        status_factory=lambda: CodexRuntimeStatus(True, \"codex-cli test\", \"Ready.\"),\n    )\n    client = app.test_client()\n    assert client.get(\"/health\").status_code == 401\n    headers = {\"Authorization\": \"Bearer bridge-secret-0123456789-abcdefghij\"}",
+        "detail": "backend.tests.test_codex_bridge",
+        "documentation": {}
+    },
+    {
+        "label": "ExampleResult",
+        "kind": 6,
+        "importPath": "backend.tests.test_codex_runtime",
+        "description": "backend.tests.test_codex_runtime",
+        "peekOfCode": "class ExampleResult(BaseModel):\n    answer: str\ndef test_codex_runner_uses_stdin_read_only_mode_and_structured_output(tmp_path: Path):\n    captured: dict[str, object] = {}\n    fake_codex = tmp_path / \"codex-test-bin\"\n    fake_codex.write_text(\"test executable placeholder\", encoding=\"utf-8\")\n    def fake_process(command, **kwargs):\n        captured[\"command\"] = command\n        captured[\"prompt\"] = kwargs[\"input\"]\n        output_path = Path(command[command.index(\"--output-last-message\") + 1])",
+        "detail": "backend.tests.test_codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "test_codex_runner_uses_stdin_read_only_mode_and_structured_output",
+        "kind": 2,
+        "importPath": "backend.tests.test_codex_runtime",
+        "description": "backend.tests.test_codex_runtime",
+        "peekOfCode": "def test_codex_runner_uses_stdin_read_only_mode_and_structured_output(tmp_path: Path):\n    captured: dict[str, object] = {}\n    fake_codex = tmp_path / \"codex-test-bin\"\n    fake_codex.write_text(\"test executable placeholder\", encoding=\"utf-8\")\n    def fake_process(command, **kwargs):\n        captured[\"command\"] = command\n        captured[\"prompt\"] = kwargs[\"input\"]\n        output_path = Path(command[command.index(\"--output-last-message\") + 1])\n        schema_path = Path(command[command.index(\"--output-schema\") + 1])\n        captured[\"schema\"] = json.loads(schema_path.read_text(encoding=\"utf-8\"))",
+        "detail": "backend.tests.test_codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "test_codex_runtime_status_reports_the_host_version",
+        "kind": 2,
+        "importPath": "backend.tests.test_codex_runtime",
+        "description": "backend.tests.test_codex_runtime",
+        "peekOfCode": "def test_codex_runtime_status_reports_the_host_version(monkeypatch):\n    monkeypatch.setattr(\"codex_runtime.resolve_codex_command\", lambda _command=None: \"codex\")\n    calls: list[list[str]] = []\n    def fake_process(command, **_kwargs):\n        calls.append(command)\n        output = \"codex-cli 1.2.3\\n\" if command[-1] == \"--version\" else \"Logged in\\n\"\n        return subprocess.CompletedProcess(command, 0, stdout=output, stderr=\"\")\n    status = codex_cli_status(runner=fake_process)\n    assert status == CodexRuntimeStatus(\n        available=True,",
+        "detail": "backend.tests.test_codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "test_codex_bridge_runtime_sends_only_prompt_schema_and_search_flag",
+        "kind": 2,
+        "importPath": "backend.tests.test_codex_runtime",
+        "description": "backend.tests.test_codex_runtime",
+        "peekOfCode": "def test_codex_bridge_runtime_sends_only_prompt_schema_and_search_flag():\n    captured: dict[str, object] = {}\n    class FakeResponse:\n        def __enter__(self):\n            return self\n        def __exit__(self, *_args):\n            return False\n        def read(self):\n            return b'{\"result\":{\"answer\":\"from host\"}}'\n    def fake_open(request, **kwargs):",
+        "detail": "backend.tests.test_codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "FakeCodexRuntime",
+        "kind": 6,
+        "importPath": "backend.tests.test_cover_letters",
+        "description": "backend.tests.test_cover_letters",
+        "peekOfCode": "class FakeCodexRuntime:\n    def __init__(self, content: str = \"Dear Example Hiring Team,\\n\\nA Codex-written draft.\\n\"):\n        self.content = content\n        self.prompt = \"\"\n        self.enable_search: bool | None = None\n    def run_structured(self, *, prompt: str, result_type: type[CoverLetterDraft], enable_search: bool):\n        self.prompt = prompt\n        self.enable_search = enable_search\n        return result_type(content=self.content)\nclass FailingCodexRuntime:",
+        "detail": "backend.tests.test_cover_letters",
+        "documentation": {}
+    },
+    {
+        "label": "FailingCodexRuntime",
+        "kind": 6,
+        "importPath": "backend.tests.test_cover_letters",
+        "description": "backend.tests.test_cover_letters",
+        "peekOfCode": "class FailingCodexRuntime:\n    def run_structured(self, **_kwargs):\n        raise RuntimeError(\"Codex is unavailable\")\ndef _job() -> dict:\n    return {\n        \"company\": \"Example Co\",\n        \"role\": \"Senior Python Engineer\",\n        \"strategic_note\": \"The backend ownership matches the candidate's experience.\",\n    }\ndef _profile() -> dict:",
+        "detail": "backend.tests.test_cover_letters",
+        "documentation": {}
+    },
+    {
+        "label": "test_cover_letter_uses_codex_structured_output",
+        "kind": 2,
+        "importPath": "backend.tests.test_cover_letters",
+        "description": "backend.tests.test_cover_letters",
+        "peekOfCode": "def test_cover_letter_uses_codex_structured_output(tmp_path: Path):\n    runtime = FakeCodexRuntime()\n    result = generate_cover_letter(\n        job=_job(),\n        profile=_profile(),\n        variant_key=\"backend\",\n        output_root=tmp_path,\n        runtime=runtime,\n    )\n    assert result[\"mode\"] == \"codex\"",
+        "detail": "backend.tests.test_cover_letters",
+        "documentation": {}
+    },
+    {
+        "label": "test_cover_letter_falls_back_when_codex_fails",
+        "kind": 2,
+        "importPath": "backend.tests.test_cover_letters",
+        "description": "backend.tests.test_cover_letters",
+        "peekOfCode": "def test_cover_letter_falls_back_when_codex_fails(tmp_path: Path):\n    result = generate_cover_letter(\n        job=_job(),\n        profile=_profile(),\n        variant_key=\"backend\",\n        output_root=tmp_path,\n        runtime=FailingCodexRuntime(),\n    )\n    assert result[\"mode\"] == \"local\"\n    assert \"Codex generation was unavailable\" in result[\"warning\"]",
+        "detail": "backend.tests.test_cover_letters",
+        "documentation": {}
+    },
+    {
+        "label": "test_schema_contains_every_persistent_domain_model",
+        "kind": 2,
+        "importPath": "backend.tests.test_database",
+        "description": "backend.tests.test_database",
+        "peekOfCode": "def test_schema_contains_every_persistent_domain_model():\n    assert {\n        \"candidate_profiles\",\n        \"resume_variants\",\n        \"job_search_runs\",\n        \"jobs\",\n        \"job_run_listings\",\n        \"job_applications\",\n        \"job_exclusions\",\n        \"cover_letters\",",
+        "detail": "backend.tests.test_database",
+        "documentation": {}
+    },
+    {
+        "label": "test_repository_bootstraps_json_then_persists_workflow_data",
+        "kind": 2,
+        "importPath": "backend.tests.test_database",
+        "description": "backend.tests.test_database",
+        "peekOfCode": "def test_repository_bootstraps_json_then_persists_workflow_data(tmp_path: Path):\n    _write_json(\n        tmp_path / \"resume\" / \"resume-data.json\",\n        {\n            \"basics\": {\"name\": \"Candidate\", \"email\": \"candidate@example.com\"},\n            \"variants\": {\"general\": {\"label\": \"General\", \"headline\": \"Senior Engineer\"}},\n        },\n    )\n    _write_json(tmp_path / \"job_applications.json\", {\"applications\": []})\n    _write_json(tmp_path / \"job_exclusions.json\", {\"exclusions\": []})",
+        "detail": "backend.tests.test_database",
+        "documentation": {}
+    },
+    {
+        "label": "AgentRunRegistry",
+        "kind": 6,
+        "importPath": "backend.agent_service",
+        "description": "backend.agent_service",
+        "peekOfCode": "class AgentRunRegistry:\n    \"\"\"Small in-process run registry suitable for one Docker API process.\"\"\"\n    def __init__(\n        self,\n        agent_factory: Callable[[], JobSearchAgent],\n        on_complete: Callable[[dict[str, Any]], None] | None = None,\n        on_change: Callable[[dict[str, Any]], None] | None = None,\n        run_context_factory: Callable[[], ContextManager[Any]] | None = None,\n        initial_runs: list[dict[str, Any]] | None = None,\n    ):",
+        "detail": "backend.agent_service",
         "documentation": {}
     },
     {
@@ -403,7 +1521,7 @@
         "kind": 2,
         "importPath": "backend.app",
         "description": "backend.app",
-        "peekOfCode": "def create_app(test_config: dict | None = None) -> Flask:\n    app = Flask(__name__)\n    app.config.update(\n        SQLALCHEMY_DATABASE_URI=f\"sqlite:///{(HERE / 'role_radar.db').as_posix()}\",\n        SQLALCHEMY_TRACK_MODIFICATIONS=False,\n        JSON_SORT_KEYS=False,\n    )\n    if test_config:\n        app.config.update(test_config)\n    data_root = Path(app.config.get(\"DATA_ROOT\", WORKSPACE_ROOT))",
+        "peekOfCode": "def create_app(test_config: dict | None = None) -> Flask:\n    app = Flask(__name__)\n    app.config.update(\n        SQLALCHEMY_DATABASE_URI=_database_url(),\n        SQLALCHEMY_TRACK_MODIFICATIONS=False,\n        SQLALCHEMY_ENGINE_OPTIONS={\"pool_pre_ping\": True},\n        JSON_SORT_KEYS=False,\n    )\n    if test_config:\n        app.config.update(test_config)",
         "detail": "backend.app",
         "documentation": {}
     },
@@ -412,7 +1530,7 @@
         "kind": 5,
         "importPath": "backend.app",
         "description": "backend.app",
-        "peekOfCode": "HERE = Path(__file__).resolve().parent\nWORKSPACE_ROOT = HERE\nload_dotenv(HERE / \".env\")\ndef create_app(test_config: dict | None = None) -> Flask:\n    app = Flask(__name__)\n    app.config.update(\n        SQLALCHEMY_DATABASE_URI=f\"sqlite:///{(HERE / 'role_radar.db').as_posix()}\",\n        SQLALCHEMY_TRACK_MODIFICATIONS=False,\n        JSON_SORT_KEYS=False,\n    )",
+        "peekOfCode": "HERE = Path(__file__).resolve().parent\nWORKSPACE_ROOT = HERE.parents[1] if len(HERE.parents) > 1 else HERE.parent\nload_dotenv(HERE / \".env\")\ndef _database_url() -> str:\n    configured = (os.getenv(\"DATABASE_URL\") or \"\").strip()\n    if configured:\n        if configured.startswith(\"postgres://\"):\n            return configured.replace(\"postgres://\", \"postgresql+psycopg://\", 1)\n        if configured.startswith(\"postgresql://\"):\n            return configured.replace(\"postgresql://\", \"postgresql+psycopg://\", 1)",
         "detail": "backend.app",
         "documentation": {}
     },
@@ -421,17 +1539,161 @@
         "kind": 5,
         "importPath": "backend.app",
         "description": "backend.app",
-        "peekOfCode": "WORKSPACE_ROOT = HERE\nload_dotenv(HERE / \".env\")\ndef create_app(test_config: dict | None = None) -> Flask:\n    app = Flask(__name__)\n    app.config.update(\n        SQLALCHEMY_DATABASE_URI=f\"sqlite:///{(HERE / 'role_radar.db').as_posix()}\",\n        SQLALCHEMY_TRACK_MODIFICATIONS=False,\n        JSON_SORT_KEYS=False,\n    )\n    if test_config:",
+        "peekOfCode": "WORKSPACE_ROOT = HERE.parents[1] if len(HERE.parents) > 1 else HERE.parent\nload_dotenv(HERE / \".env\")\ndef _database_url() -> str:\n    configured = (os.getenv(\"DATABASE_URL\") or \"\").strip()\n    if configured:\n        if configured.startswith(\"postgres://\"):\n            return configured.replace(\"postgres://\", \"postgresql+psycopg://\", 1)\n        if configured.startswith(\"postgresql://\"):\n            return configured.replace(\"postgresql://\", \"postgresql+psycopg://\", 1)\n        return configured",
         "detail": "backend.app",
         "documentation": {}
     },
     {
-        "label": "app",
+        "label": "create_bridge_app",
+        "kind": 2,
+        "importPath": "backend.codex_bridge",
+        "description": "backend.codex_bridge",
+        "peekOfCode": "def create_bridge_app(\n    *,\n    runtime: CodexCliRunner | Any | None = None,\n    token: str | None = None,\n    status_factory: Callable[[], CodexRuntimeStatus] = codex_cli_status,\n) -> Flask:\n    \"\"\"Expose one authenticated, schema-constrained Codex operation to Docker.\"\"\"\n    bridge_token = (token or os.getenv(\"CODEX_BRIDGE_TOKEN\") or \"\").strip()\n    if len(bridge_token) < 32 or bridge_token == BRIDGE_TOKEN_PLACEHOLDER:\n        raise RuntimeError(\"Set CODEX_BRIDGE_TOKEN to a non-placeholder secret of at least 32 characters.\")",
+        "detail": "backend.codex_bridge",
+        "documentation": {}
+    },
+    {
+        "label": "HERE",
         "kind": 5,
-        "importPath": "backend.app",
-        "description": "backend.app",
-        "peekOfCode": "app = create_app()\nif __name__ == \"__main__\":\n    app.run(host=\"127.0.0.1\", port=int(os.getenv(\"FLASK_PORT\", \"5000\")), debug=True)",
-        "detail": "backend.app",
+        "importPath": "backend.codex_bridge",
+        "description": "backend.codex_bridge",
+        "peekOfCode": "HERE = Path(__file__).resolve().parent\nload_dotenv(HERE / \".env\")\n_RUN_LOCK = threading.Lock()\ndef create_bridge_app(\n    *,\n    runtime: CodexCliRunner | Any | None = None,\n    token: str | None = None,\n    status_factory: Callable[[], CodexRuntimeStatus] = codex_cli_status,\n) -> Flask:\n    \"\"\"Expose one authenticated, schema-constrained Codex operation to Docker.\"\"\"",
+        "detail": "backend.codex_bridge",
+        "documentation": {}
+    },
+    {
+        "label": "_RUN_LOCK",
+        "kind": 5,
+        "importPath": "backend.codex_bridge",
+        "description": "backend.codex_bridge",
+        "peekOfCode": "_RUN_LOCK = threading.Lock()\ndef create_bridge_app(\n    *,\n    runtime: CodexCliRunner | Any | None = None,\n    token: str | None = None,\n    status_factory: Callable[[], CodexRuntimeStatus] = codex_cli_status,\n) -> Flask:\n    \"\"\"Expose one authenticated, schema-constrained Codex operation to Docker.\"\"\"\n    bridge_token = (token or os.getenv(\"CODEX_BRIDGE_TOKEN\") or \"\").strip()\n    if len(bridge_token) < 32 or bridge_token == BRIDGE_TOKEN_PLACEHOLDER:",
+        "detail": "backend.codex_bridge",
+        "documentation": {}
+    },
+    {
+        "label": "CodexRuntimeStatus",
+        "kind": 6,
+        "importPath": "backend.codex_runtime",
+        "description": "backend.codex_runtime",
+        "peekOfCode": "class CodexRuntimeStatus:\n    available: bool\n    version: str | None\n    message: str\ndef resolve_codex_command(command: str | None = None) -> str | None:\n    \"\"\"Resolve an explicit CLI path first, then the host's PATH.\"\"\"\n    requested = (command or os.getenv(\"CODEX_CLI_PATH\") or \"codex\").strip()\n    if not requested:\n        return None\n    requested_path = Path(requested).expanduser()",
+        "detail": "backend.codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "CodexCliRunner",
+        "kind": 6,
+        "importPath": "backend.codex_runtime",
+        "description": "backend.codex_runtime",
+        "peekOfCode": "class CodexCliRunner:\n    \"\"\"Safe structured-output adapter around the host's `codex exec` command.\"\"\"\n    provider = \"Host Codex CLI\"\n    def __init__(\n        self,\n        *,\n        workspace: Path,\n        command: str | None = None,\n        model: str | None = None,\n        timeout_seconds: int | None = None,",
+        "detail": "backend.codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "CodexBridgeRuntime",
+        "kind": 6,
+        "importPath": "backend.codex_runtime",
+        "description": "backend.codex_runtime",
+        "peekOfCode": "class CodexBridgeRuntime:\n    \"\"\"Structured Codex client for a Docker backend talking to its host.\"\"\"\n    provider = \"Host Codex bridge\"\n    def __init__(\n        self,\n        *,\n        bridge_url: str,\n        token: str | None = None,\n        timeout_seconds: int | None = None,\n        opener: UrlOpener = urlopen,",
+        "detail": "backend.codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "resolve_codex_command",
+        "kind": 2,
+        "importPath": "backend.codex_runtime",
+        "description": "backend.codex_runtime",
+        "peekOfCode": "def resolve_codex_command(command: str | None = None) -> str | None:\n    \"\"\"Resolve an explicit CLI path first, then the host's PATH.\"\"\"\n    requested = (command or os.getenv(\"CODEX_CLI_PATH\") or \"codex\").strip()\n    if not requested:\n        return None\n    requested_path = Path(requested).expanduser()\n    if requested_path.is_file():\n        return str(requested_path.resolve())\n    return shutil.which(requested)\ndef codex_cli_status(",
+        "detail": "backend.codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "codex_cli_status",
+        "kind": 2,
+        "importPath": "backend.codex_runtime",
+        "description": "backend.codex_runtime",
+        "peekOfCode": "def codex_cli_status(\n    command: str | None = None,\n    *,\n    runner: ProcessRunner = subprocess.run,\n) -> CodexRuntimeStatus:\n    \"\"\"Check that the host Codex CLI exists and can be launched.\"\"\"\n    resolved = resolve_codex_command(command)\n    if not resolved:\n        return CodexRuntimeStatus(\n            available=False,",
+        "detail": "backend.codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "codex_runtime_status",
+        "kind": 2,
+        "importPath": "backend.codex_runtime",
+        "description": "backend.codex_runtime",
+        "peekOfCode": "def codex_runtime_status() -> CodexRuntimeStatus:\n    \"\"\"Probe the configured direct-CLI or authenticated bridge transport.\"\"\"\n    bridge_url = (os.getenv(\"CODEX_BRIDGE_URL\") or \"\").strip()\n    if bridge_url:\n        status = codex_bridge_status(bridge_url=bridge_url)\n        print(status)\n        return status\n    return codex_cli_status()\ndef codex_provider_name() -> str:\n    return \"Host Codex bridge\" if (os.getenv(\"CODEX_BRIDGE_URL\") or \"\").strip() else \"Host Codex CLI\"",
+        "detail": "backend.codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "codex_provider_name",
+        "kind": 2,
+        "importPath": "backend.codex_runtime",
+        "description": "backend.codex_runtime",
+        "peekOfCode": "def codex_provider_name() -> str:\n    return \"Host Codex bridge\" if (os.getenv(\"CODEX_BRIDGE_URL\") or \"\").strip() else \"Host Codex CLI\"\ndef create_codex_runtime(*, workspace: Path) -> CodexCliRunner | CodexBridgeRuntime:\n    bridge_url = (os.getenv(\"CODEX_BRIDGE_URL\") or \"\").strip()\n    if bridge_url:\n        return CodexBridgeRuntime(bridge_url=bridge_url)\n    return CodexCliRunner(workspace=workspace)\nclass CodexCliRunner:\n    \"\"\"Safe structured-output adapter around the host's `codex exec` command.\"\"\"\n    provider = \"Host Codex CLI\"",
+        "detail": "backend.codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "create_codex_runtime",
+        "kind": 2,
+        "importPath": "backend.codex_runtime",
+        "description": "backend.codex_runtime",
+        "peekOfCode": "def create_codex_runtime(*, workspace: Path) -> CodexCliRunner | CodexBridgeRuntime:\n    bridge_url = (os.getenv(\"CODEX_BRIDGE_URL\") or \"\").strip()\n    if bridge_url:\n        return CodexBridgeRuntime(bridge_url=bridge_url)\n    return CodexCliRunner(workspace=workspace)\nclass CodexCliRunner:\n    \"\"\"Safe structured-output adapter around the host's `codex exec` command.\"\"\"\n    provider = \"Host Codex CLI\"\n    def __init__(\n        self,",
+        "detail": "backend.codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "codex_bridge_status",
+        "kind": 2,
+        "importPath": "backend.codex_runtime",
+        "description": "backend.codex_runtime",
+        "peekOfCode": "def codex_bridge_status(\n    *,\n    bridge_url: str,\n    token: str | None = None,\n    opener: UrlOpener = urlopen,\n) -> CodexRuntimeStatus:\n    resolved_token = (token or os.getenv(\"CODEX_BRIDGE_TOKEN\") or \"\").strip()\n    print(resolved_token)\n    if not _bridge_token_is_valid(resolved_token):\n        return CodexRuntimeStatus(False, None, \"Set a random CODEX_BRIDGE_TOKEN of at least 32 characters.\")",
+        "detail": "backend.codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "StructuredResult",
+        "kind": 5,
+        "importPath": "backend.codex_runtime",
+        "description": "backend.codex_runtime",
+        "peekOfCode": "StructuredResult = TypeVar(\"StructuredResult\", bound=BaseModel)\nProcessRunner = Callable[..., subprocess.CompletedProcess[str]]\nUrlOpener = Callable[..., Any]\nBRIDGE_TOKEN_PLACEHOLDER = \"replace-with-a-long-random-secret\"\n@dataclass(frozen=True)\nclass CodexRuntimeStatus:\n    available: bool\n    version: str | None\n    message: str\ndef resolve_codex_command(command: str | None = None) -> str | None:",
+        "detail": "backend.codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "ProcessRunner",
+        "kind": 5,
+        "importPath": "backend.codex_runtime",
+        "description": "backend.codex_runtime",
+        "peekOfCode": "ProcessRunner = Callable[..., subprocess.CompletedProcess[str]]\nUrlOpener = Callable[..., Any]\nBRIDGE_TOKEN_PLACEHOLDER = \"replace-with-a-long-random-secret\"\n@dataclass(frozen=True)\nclass CodexRuntimeStatus:\n    available: bool\n    version: str | None\n    message: str\ndef resolve_codex_command(command: str | None = None) -> str | None:\n    \"\"\"Resolve an explicit CLI path first, then the host's PATH.\"\"\"",
+        "detail": "backend.codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "UrlOpener",
+        "kind": 5,
+        "importPath": "backend.codex_runtime",
+        "description": "backend.codex_runtime",
+        "peekOfCode": "UrlOpener = Callable[..., Any]\nBRIDGE_TOKEN_PLACEHOLDER = \"replace-with-a-long-random-secret\"\n@dataclass(frozen=True)\nclass CodexRuntimeStatus:\n    available: bool\n    version: str | None\n    message: str\ndef resolve_codex_command(command: str | None = None) -> str | None:\n    \"\"\"Resolve an explicit CLI path first, then the host's PATH.\"\"\"\n    requested = (command or os.getenv(\"CODEX_CLI_PATH\") or \"codex\").strip()",
+        "detail": "backend.codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "BRIDGE_TOKEN_PLACEHOLDER",
+        "kind": 5,
+        "importPath": "backend.codex_runtime",
+        "description": "backend.codex_runtime",
+        "peekOfCode": "BRIDGE_TOKEN_PLACEHOLDER = \"replace-with-a-long-random-secret\"\n@dataclass(frozen=True)\nclass CodexRuntimeStatus:\n    available: bool\n    version: str | None\n    message: str\ndef resolve_codex_command(command: str | None = None) -> str | None:\n    \"\"\"Resolve an explicit CLI path first, then the host's PATH.\"\"\"\n    requested = (command or os.getenv(\"CODEX_CLI_PATH\") or \"codex\").strip()\n    if not requested:",
+        "detail": "backend.codex_runtime",
+        "documentation": {}
+    },
+    {
+        "label": "CoverLetterDraft",
+        "kind": 6,
+        "importPath": "backend.cover_letters",
+        "description": "backend.cover_letters",
+        "peekOfCode": "class CoverLetterDraft(BaseModel):\n    content: str\ndef _slug(value: str) -> str:\n    return re.sub(r\"[^a-z0-9]+\", \"-\", value.lower()).strip(\"-\")\ndef _local_letter(job: dict[str, Any], profile: dict[str, Any], variant_key: str) -> str:\n    basics = profile.get(\"basics\") or {}\n    name = basics.get(\"name\") or \"Rodolfo Rojas\"\n    summaries = profile.get(\"summary\") or []\n    opener = summaries[0] if summaries else \"I bring more than ten years of full-stack software engineering experience.\"\n    note = job.get(\"strategic_note\") or \"The role aligns with my experience delivering production web applications and backend services.\"",
+        "detail": "backend.cover_letters",
         "documentation": {}
     },
     {
@@ -439,8 +1701,125 @@
         "kind": 2,
         "importPath": "backend.cover_letters",
         "description": "backend.cover_letters",
-        "peekOfCode": "def generate_cover_letter(\n    job: dict[str, Any],\n    profile: dict[str, Any],\n    variant_key: str,\n    output_root: Path,\n) -> dict[str, Any]:\n    mode = \"local\"\n    content = _local_letter(job, profile, variant_key)\n    warning: str | None = None\n    if os.getenv(\"OPENAI_API_KEY\"):",
+        "peekOfCode": "def generate_cover_letter(\n    job: dict[str, Any],\n    profile: dict[str, Any],\n    variant_key: str,\n    output_root: Path,\n    *,\n    workspace: Path | None = None,\n    runtime: CodexCliRunner | CodexBridgeRuntime | None = None,\n) -> dict[str, Any]:\n    mode = \"local\"",
         "detail": "backend.cover_letters",
+        "documentation": {}
+    },
+    {
+        "label": "BlockedSource",
+        "kind": 6,
+        "importPath": "backend.job_search_agent",
+        "description": "backend.job_search_agent",
+        "peekOfCode": "class BlockedSource(BaseModel):\n    site: str\n    details: str\nclass ResearchCandidate(BaseModel):\n    source_name: str\n    role: str\n    company: str\n    location: str\n    posted_date: date\n    posted_evidence: str",
+        "detail": "backend.job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "ResearchCandidate",
+        "kind": 6,
+        "importPath": "backend.job_search_agent",
+        "description": "backend.job_search_agent",
+        "peekOfCode": "class ResearchCandidate(BaseModel):\n    source_name: str\n    role: str\n    company: str\n    location: str\n    posted_date: date\n    posted_evidence: str\n    employment_type: str\n    salary: str\n    offer_url: str",
+        "detail": "backend.job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "ResearchBatch",
+        "kind": 6,
+        "importPath": "backend.job_search_agent",
+        "description": "backend.job_search_agent",
+        "peekOfCode": "class ResearchBatch(BaseModel):\n    candidates: list[ResearchCandidate]\n    blocked_sources: list[BlockedSource]\n    notes: list[str]\nclass ScoreBreakdown(BaseModel):\n    skills_match: int = Field(ge=0, le=20)\n    seniority_scope: int = Field(ge=0, le=20)\n    technical_fit: int = Field(ge=0, le=20)\n    leadership_alignment: int = Field(ge=0, le=20)\n    compensation: int = Field(ge=0, le=10)",
+        "detail": "backend.job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "ScoreBreakdown",
+        "kind": 6,
+        "importPath": "backend.job_search_agent",
+        "description": "backend.job_search_agent",
+        "peekOfCode": "class ScoreBreakdown(BaseModel):\n    skills_match: int = Field(ge=0, le=20)\n    seniority_scope: int = Field(ge=0, le=20)\n    technical_fit: int = Field(ge=0, le=20)\n    leadership_alignment: int = Field(ge=0, le=20)\n    compensation: int = Field(ge=0, le=10)\n    strategic_positioning: int = Field(ge=0, le=10)\n    @property\n    def total(self) -> int:\n        return sum(self.model_dump().values())",
+        "detail": "backend.job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "ScoredRecommendation",
+        "kind": 6,
+        "importPath": "backend.job_search_agent",
+        "description": "backend.job_search_agent",
+        "peekOfCode": "class ScoredRecommendation(BaseModel):\n    offer_url: str\n    accepted: bool\n    rejection_reason: str | None\n    score_breakdown: ScoreBreakdown\n    suggested_resume_key: str\n    strategic_note: str | None\nclass ScoringBatch(BaseModel):\n    recommendations: list[ScoredRecommendation]\n@dataclass(frozen=True)",
+        "detail": "backend.job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "ScoringBatch",
+        "kind": 6,
+        "importPath": "backend.job_search_agent",
+        "description": "backend.job_search_agent",
+        "peekOfCode": "class ScoringBatch(BaseModel):\n    recommendations: list[ScoredRecommendation]\n@dataclass(frozen=True)\nclass UrlValidation:\n    url: str\n    final_url: str\n    active: bool\n    status_code: int | None\n    details: str\nclass AgentGateway(Protocol):",
+        "detail": "backend.job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "UrlValidation",
+        "kind": 6,
+        "importPath": "backend.job_search_agent",
+        "description": "backend.job_search_agent",
+        "peekOfCode": "class UrlValidation:\n    url: str\n    final_url: str\n    active: bool\n    status_code: int | None\n    details: str\nclass AgentGateway(Protocol):\n    provider: str\n    model: str\n    def research(",
+        "detail": "backend.job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "AgentGateway",
+        "kind": 6,
+        "importPath": "backend.job_search_agent",
+        "description": "backend.job_search_agent",
+        "peekOfCode": "class AgentGateway(Protocol):\n    provider: str\n    model: str\n    def research(\n        self,\n        *,\n        query: str,\n        today: date,\n        profile: dict[str, Any],\n        applications: list[dict[str, Any]],",
+        "detail": "backend.job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "CodexCliJobGateway",
+        "kind": 6,
+        "importPath": "backend.job_search_agent",
+        "description": "backend.job_search_agent",
+        "peekOfCode": "class CodexCliJobGateway:\n    \"\"\"Host Codex boundary. Orchestration and hard filters stay in Python.\"\"\"\n    def __init__(\n        self,\n        *,\n        workspace: Path,\n        runtime: CodexCliRunner | CodexBridgeRuntime | None = None,\n    ):\n        self.runtime = runtime or create_codex_runtime(workspace=workspace)\n        self.provider = self.runtime.provider",
+        "detail": "backend.job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "JobSearchAgent",
+        "kind": 6,
+        "importPath": "backend.job_search_agent",
+        "description": "backend.job_search_agent",
+        "peekOfCode": "class JobSearchAgent:\n    \"\"\"Explicit plan → research → validate → score → persist agent workflow.\"\"\"\n    def __init__(\n        self,\n        repository: JobRepository,\n        gateway: AgentGateway,\n        prompt_path: Path,\n        *,\n        url_validator: Callable[[str], UrlValidation] = validate_listing_url,\n        today_factory: Callable[[], date] = date.today,",
+        "detail": "backend.job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "validate_listing_url",
+        "kind": 2,
+        "importPath": "backend.job_search_agent",
+        "description": "backend.job_search_agent",
+        "peekOfCode": "def validate_listing_url(url: str, timeout_seconds: int = 12) -> UrlValidation:\n    parsed = urlparse(url)\n    if parsed.scheme not in {\"http\", \"https\"} or not parsed.netloc:\n        return UrlValidation(url, url, False, None, \"URL is not HTTP(S).\")\n    request = Request(\n        url,\n        headers={\n            \"User-Agent\": \"Mozilla/5.0 (compatible; RoleRadar/1.0; +https://github.com/rodolrojas/job-search-dashboard)\",\n            \"Accept\": \"text/html,application/xhtml+xml\",\n            \"Range\": \"bytes=0-16383\",",
+        "detail": "backend.job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "SEARCH_QUERIES",
+        "kind": 5,
+        "importPath": "backend.job_search_agent",
+        "description": "backend.job_search_agent",
+        "peekOfCode": "SEARCH_QUERIES = (\n    \"senior remote LATAM Node.js TypeScript NestJS backend full-time\",\n    \"senior remote LATAM React Next.js frontend full stack full-time\",\n    \"senior remoto LATAM PHP Node.js desarrollador full stack\",\n    \"senior remote LATAM Go Python backend software engineer\",\n    \"site:linkedin.com/posts hiring senior software engineer remote LATAM\",\n    \"site:getonbrd.com remote senior full stack LATAM\",\n)\nMIN_MONTHLY_SALARY_USD = 3_500\nclass BlockedSource(BaseModel):",
+        "detail": "backend.job_search_agent",
+        "documentation": {}
+    },
+    {
+        "label": "MIN_MONTHLY_SALARY_USD",
+        "kind": 5,
+        "importPath": "backend.job_search_agent",
+        "description": "backend.job_search_agent",
+        "peekOfCode": "MIN_MONTHLY_SALARY_USD = 3_500\nclass BlockedSource(BaseModel):\n    site: str\n    details: str\nclass ResearchCandidate(BaseModel):\n    source_name: str\n    role: str\n    company: str\n    location: str\n    posted_date: date",
+        "detail": "backend.job_search_agent",
         "documentation": {}
     },
     {
@@ -448,16 +1827,34 @@
         "kind": 6,
         "importPath": "backend.models",
         "description": "backend.models",
-        "peekOfCode": "class Base(DeclarativeBase):\n    pass\ndb = SQLAlchemy(model_class=Base)\nclass JobListing(db.Model):\n    __tablename__ = \"job_listings\"\n    id: Mapped[str] = mapped_column(String(180), primary_key=True)\n    role: Mapped[str] = mapped_column(String(240), index=True)\n    company: Mapped[str] = mapped_column(String(180), index=True)\n    location: Mapped[str] = mapped_column(String(240), index=True)\n    score: Mapped[int] = mapped_column(Integer, index=True)",
+        "peekOfCode": "class Base(DeclarativeBase):\n    pass\ndb = SQLAlchemy(model_class=Base)\nJSON_DOCUMENT = JSON().with_variant(JSONB, \"postgresql\")\ndef utc_now() -> datetime:\n    return datetime.now(UTC)\nclass JobSearchRun(db.Model):\n    __tablename__ = \"job_search_runs\"\n    id: Mapped[str] = mapped_column(String(240), primary_key=True)\n    source_file: Mapped[str] = mapped_column(String(240), unique=True, nullable=False)",
         "detail": "backend.models",
         "documentation": {}
     },
     {
-        "label": "JobListing",
+        "label": "JobSearchRun",
         "kind": 6,
         "importPath": "backend.models",
         "description": "backend.models",
-        "peekOfCode": "class JobListing(db.Model):\n    __tablename__ = \"job_listings\"\n    id: Mapped[str] = mapped_column(String(180), primary_key=True)\n    role: Mapped[str] = mapped_column(String(240), index=True)\n    company: Mapped[str] = mapped_column(String(180), index=True)\n    location: Mapped[str] = mapped_column(String(240), index=True)\n    score: Mapped[int] = mapped_column(Integer, index=True)\n    posted_on: Mapped[date | None] = mapped_column(Date, nullable=True)\n    is_new: Mapped[bool] = mapped_column(Boolean, default=False)\n    run_file: Mapped[str] = mapped_column(String(240), index=True)",
+        "peekOfCode": "class JobSearchRun(db.Model):\n    __tablename__ = \"job_search_runs\"\n    id: Mapped[str] = mapped_column(String(240), primary_key=True)\n    source_file: Mapped[str] = mapped_column(String(240), unique=True, nullable=False)\n    report_date: Mapped[date] = mapped_column(Date, nullable=False, index=True)\n    run_number: Mapped[int] = mapped_column(Integer, nullable=False, default=0)\n    timezone: Mapped[str | None] = mapped_column(String(80))\n    summary: Mapped[dict[str, Any]] = mapped_column(JSON_DOCUMENT, nullable=False, default=dict)\n    top_three: Mapped[list[Any]] = mapped_column(JSON_DOCUMENT, nullable=False, default=list)\n    comparison: Mapped[dict[str, Any]] = mapped_column(JSON_DOCUMENT, nullable=False, default=dict)",
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "Job",
+        "kind": 6,
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "peekOfCode": "class Job(db.Model):\n    __tablename__ = \"jobs\"\n    id: Mapped[str] = mapped_column(String(180), primary_key=True)\n    role: Mapped[str] = mapped_column(String(240), nullable=False, index=True)\n    company: Mapped[str] = mapped_column(String(180), nullable=False, index=True)\n    location: Mapped[str] = mapped_column(String(240), nullable=False, index=True)\n    offer_url: Mapped[str | None] = mapped_column(Text)\n    contact_email: Mapped[str | None] = mapped_column(String(320))\n    recruiter_or_careers_url: Mapped[str | None] = mapped_column(Text)\n    salary: Mapped[str] = mapped_column(String(240), nullable=False, default=\"Undisclosed\")",
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "JobRunListing",
+        "kind": 6,
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "peekOfCode": "class JobRunListing(db.Model):\n    __tablename__ = \"job_run_listings\"\n    id: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, \"sqlite\"), primary_key=True, autoincrement=True)\n    run_id: Mapped[str] = mapped_column(ForeignKey(\"job_search_runs.id\", ondelete=\"CASCADE\"), nullable=False, index=True)\n    job_id: Mapped[str] = mapped_column(ForeignKey(\"jobs.id\", ondelete=\"CASCADE\"), nullable=False, index=True)\n    rank: Mapped[int | None] = mapped_column(Integer)\n    posted_on: Mapped[date | None] = mapped_column(Date, index=True)\n    posted_evidence: Mapped[str | None] = mapped_column(Text)\n    score: Mapped[int] = mapped_column(Integer, nullable=False, default=0, index=True)\n    score_breakdown: Mapped[dict[str, Any]] = mapped_column(JSON_DOCUMENT, nullable=False, default=dict)",
         "detail": "backend.models",
         "documentation": {}
     },
@@ -466,7 +1863,16 @@
         "kind": 6,
         "importPath": "backend.models",
         "description": "backend.models",
-        "peekOfCode": "class CandidateProfile(db.Model):\n    __tablename__ = \"candidate_profiles\"\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, default=1)\n    display_name: Mapped[str] = mapped_column(String(180))\n    raw_json: Mapped[str] = mapped_column(Text)\n    imported_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=lambda: datetime.now(UTC))\nclass JobApplication(db.Model):\n    __tablename__ = \"job_applications\"\n    id: Mapped[str] = mapped_column(String(220), primary_key=True)\n    job_id: Mapped[str] = mapped_column(String(180), index=True)",
+        "peekOfCode": "class CandidateProfile(db.Model):\n    __tablename__ = \"candidate_profiles\"\n    id: Mapped[int] = mapped_column(Integer, primary_key=True, default=1)\n    display_name: Mapped[str] = mapped_column(String(180), nullable=False)\n    email: Mapped[str | None] = mapped_column(String(320))\n    location: Mapped[str | None] = mapped_column(String(240))\n    raw_json: Mapped[dict[str, Any]] = mapped_column(JSON_DOCUMENT, nullable=False, default=dict)\n    imported_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, default=utc_now)\n    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, default=utc_now, onupdate=utc_now)\n    variants: Mapped[list[ResumeVariant]] = relationship(back_populates=\"profile\", cascade=\"all, delete-orphan\")",
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "ResumeVariant",
+        "kind": 6,
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "peekOfCode": "class ResumeVariant(db.Model):\n    __tablename__ = \"resume_variants\"\n    key: Mapped[str] = mapped_column(String(80), primary_key=True)\n    profile_id: Mapped[int] = mapped_column(ForeignKey(\"candidate_profiles.id\", ondelete=\"CASCADE\"), nullable=False, default=1)\n    label: Mapped[str] = mapped_column(String(160), nullable=False)\n    headline: Mapped[str] = mapped_column(Text, nullable=False, default=\"\")\n    pdf_filename: Mapped[str] = mapped_column(String(240), nullable=False)\n    raw_json: Mapped[dict[str, Any]] = mapped_column(JSON_DOCUMENT, nullable=False, default=dict)\n    profile: Mapped[CandidateProfile] = relationship(back_populates=\"variants\")\nclass JobApplication(db.Model):",
         "detail": "backend.models",
         "documentation": {}
     },
@@ -475,7 +1881,7 @@
         "kind": 6,
         "importPath": "backend.models",
         "description": "backend.models",
-        "peekOfCode": "class JobApplication(db.Model):\n    __tablename__ = \"job_applications\"\n    id: Mapped[str] = mapped_column(String(220), primary_key=True)\n    job_id: Mapped[str] = mapped_column(String(180), index=True)\n    company: Mapped[str] = mapped_column(String(180))\n    role: Mapped[str] = mapped_column(String(240))\n    status: Mapped[str] = mapped_column(String(80), index=True)\n    applied_on: Mapped[date | None] = mapped_column(Date, nullable=True)\n    raw_json: Mapped[str] = mapped_column(Text)\nclass JobExclusion(db.Model):",
+        "peekOfCode": "class JobApplication(db.Model):\n    __tablename__ = \"job_applications\"\n    id: Mapped[str] = mapped_column(String(220), primary_key=True)\n    job_id: Mapped[str] = mapped_column(ForeignKey(\"jobs.id\", ondelete=\"CASCADE\"), nullable=False, unique=True)\n    company: Mapped[str] = mapped_column(String(180), nullable=False)\n    role: Mapped[str] = mapped_column(String(240), nullable=False)\n    location: Mapped[str | None] = mapped_column(String(240))\n    job_url: Mapped[str | None] = mapped_column(Text)\n    source_file: Mapped[str | None] = mapped_column(String(240), index=True)\n    source_original_rank: Mapped[int | None] = mapped_column(Integer)",
         "detail": "backend.models",
         "documentation": {}
     },
@@ -484,7 +1890,43 @@
         "kind": 6,
         "importPath": "backend.models",
         "description": "backend.models",
-        "peekOfCode": "class JobExclusion(db.Model):\n    __tablename__ = \"job_exclusions\"\n    id: Mapped[str] = mapped_column(String(220), primary_key=True)\n    job_id: Mapped[str] = mapped_column(String(180), index=True)\n    company: Mapped[str] = mapped_column(String(180))\n    role: Mapped[str] = mapped_column(String(240))\n    reason: Mapped[str] = mapped_column(Text)\n    keep_out: Mapped[bool] = mapped_column(Boolean, default=True)\n    excluded_on: Mapped[date | None] = mapped_column(Date, nullable=True)\n    raw_json: Mapped[str] = mapped_column(Text)",
+        "peekOfCode": "class JobExclusion(db.Model):\n    __tablename__ = \"job_exclusions\"\n    id: Mapped[str] = mapped_column(String(220), primary_key=True)\n    job_id: Mapped[str] = mapped_column(ForeignKey(\"jobs.id\", ondelete=\"CASCADE\"), nullable=False, unique=True)\n    company: Mapped[str] = mapped_column(String(180), nullable=False)\n    role: Mapped[str] = mapped_column(String(240), nullable=False)\n    job_url: Mapped[str | None] = mapped_column(Text)\n    source_file: Mapped[str | None] = mapped_column(String(240), index=True)\n    source_original_rank: Mapped[int | None] = mapped_column(Integer)\n    status: Mapped[str] = mapped_column(String(80), nullable=False, default=\"user_removed\", index=True)",
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "CoverLetter",
+        "kind": 6,
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "peekOfCode": "class CoverLetter(db.Model):\n    __tablename__ = \"cover_letters\"\n    id: Mapped[str] = mapped_column(String(32), primary_key=True)\n    job_id: Mapped[str] = mapped_column(ForeignKey(\"jobs.id\", ondelete=\"CASCADE\"), nullable=False, index=True)\n    resume_variant: Mapped[str] = mapped_column(String(80), nullable=False)\n    content: Mapped[str] = mapped_column(Text, nullable=False)\n    mode: Mapped[str] = mapped_column(String(40), nullable=False)\n    warning: Mapped[str | None] = mapped_column(Text)\n    filename: Mapped[str] = mapped_column(String(260), nullable=False)\n    saved_to: Mapped[str | None] = mapped_column(Text)",
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "AgentRun",
+        "kind": 6,
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "peekOfCode": "class AgentRun(db.Model):\n    __tablename__ = \"agent_runs\"\n    id: Mapped[str] = mapped_column(String(32), primary_key=True)\n    status: Mapped[str] = mapped_column(String(40), nullable=False, index=True)\n    phase: Mapped[str] = mapped_column(String(80), nullable=False)\n    message: Mapped[str] = mapped_column(Text, nullable=False)\n    result: Mapped[dict[str, Any] | None] = mapped_column(JSON_DOCUMENT)\n    error: Mapped[str | None] = mapped_column(Text)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False, index=True)\n    updated_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)",
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "AgentRunEvent",
+        "kind": 6,
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "peekOfCode": "class AgentRunEvent(db.Model):\n    __tablename__ = \"agent_run_events\"\n    id: Mapped[int] = mapped_column(BigInteger().with_variant(Integer, \"sqlite\"), primary_key=True, autoincrement=True)\n    run_id: Mapped[str] = mapped_column(ForeignKey(\"agent_runs.id\", ondelete=\"CASCADE\"), nullable=False, index=True)\n    sequence: Mapped[int] = mapped_column(Integer, nullable=False)\n    phase: Mapped[str] = mapped_column(String(80), nullable=False)\n    message: Mapped[str] = mapped_column(Text, nullable=False)\n    details: Mapped[dict[str, Any] | None] = mapped_column(JSON_DOCUMENT)\n    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)\n    run: Mapped[AgentRun] = relationship(back_populates=\"events\")",
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "utc_now",
+        "kind": 2,
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "peekOfCode": "def utc_now() -> datetime:\n    return datetime.now(UTC)\nclass JobSearchRun(db.Model):\n    __tablename__ = \"job_search_runs\"\n    id: Mapped[str] = mapped_column(String(240), primary_key=True)\n    source_file: Mapped[str] = mapped_column(String(240), unique=True, nullable=False)\n    report_date: Mapped[date] = mapped_column(Date, nullable=False, index=True)\n    run_number: Mapped[int] = mapped_column(Integer, nullable=False, default=0)\n    timezone: Mapped[str | None] = mapped_column(String(80))\n    summary: Mapped[dict[str, Any]] = mapped_column(JSON_DOCUMENT, nullable=False, default=dict)",
         "detail": "backend.models",
         "documentation": {}
     },
@@ -493,7 +1935,7 @@
         "kind": 2,
         "importPath": "backend.models",
         "description": "backend.models",
-        "peekOfCode": "def model_counts() -> dict[str, Any]:\n    return {\n        \"jobs\": db.session.query(JobListing).count(),\n        \"profiles\": db.session.query(CandidateProfile).count(),\n        \"applications\": db.session.query(JobApplication).count(),\n        \"exclusions\": db.session.query(JobExclusion).count(),\n    }",
+        "peekOfCode": "def model_counts() -> dict[str, Any]:\n    return {\n        \"runs\": db.session.query(JobSearchRun).count(),\n        \"jobs\": db.session.query(Job).count(),\n        \"listings\": db.session.query(JobRunListing).count(),\n        \"profiles\": db.session.query(CandidateProfile).count(),\n        \"resume_variants\": db.session.query(ResumeVariant).count(),\n        \"applications\": db.session.query(JobApplication).count(),\n        \"exclusions\": db.session.query(JobExclusion).count(),\n        \"cover_letters\": db.session.query(CoverLetter).count(),",
         "detail": "backend.models",
         "documentation": {}
     },
@@ -502,7 +1944,16 @@
         "kind": 5,
         "importPath": "backend.models",
         "description": "backend.models",
-        "peekOfCode": "db = SQLAlchemy(model_class=Base)\nclass JobListing(db.Model):\n    __tablename__ = \"job_listings\"\n    id: Mapped[str] = mapped_column(String(180), primary_key=True)\n    role: Mapped[str] = mapped_column(String(240), index=True)\n    company: Mapped[str] = mapped_column(String(180), index=True)\n    location: Mapped[str] = mapped_column(String(240), index=True)\n    score: Mapped[int] = mapped_column(Integer, index=True)\n    posted_on: Mapped[date | None] = mapped_column(Date, nullable=True)\n    is_new: Mapped[bool] = mapped_column(Boolean, default=False)",
+        "peekOfCode": "db = SQLAlchemy(model_class=Base)\nJSON_DOCUMENT = JSON().with_variant(JSONB, \"postgresql\")\ndef utc_now() -> datetime:\n    return datetime.now(UTC)\nclass JobSearchRun(db.Model):\n    __tablename__ = \"job_search_runs\"\n    id: Mapped[str] = mapped_column(String(240), primary_key=True)\n    source_file: Mapped[str] = mapped_column(String(240), unique=True, nullable=False)\n    report_date: Mapped[date] = mapped_column(Date, nullable=False, index=True)\n    run_number: Mapped[int] = mapped_column(Integer, nullable=False, default=0)",
+        "detail": "backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "JSON_DOCUMENT",
+        "kind": 5,
+        "importPath": "backend.models",
+        "description": "backend.models",
+        "peekOfCode": "JSON_DOCUMENT = JSON().with_variant(JSONB, \"postgresql\")\ndef utc_now() -> datetime:\n    return datetime.now(UTC)\nclass JobSearchRun(db.Model):\n    __tablename__ = \"job_search_runs\"\n    id: Mapped[str] = mapped_column(String(240), primary_key=True)\n    source_file: Mapped[str] = mapped_column(String(240), unique=True, nullable=False)\n    report_date: Mapped[date] = mapped_column(Date, nullable=False, index=True)\n    run_number: Mapped[int] = mapped_column(Integer, nullable=False, default=0)\n    timezone: Mapped[str | None] = mapped_column(String(80))",
         "detail": "backend.models",
         "documentation": {}
     },
@@ -511,7 +1962,7 @@
         "kind": 6,
         "importPath": "backend.repository",
         "description": "backend.repository",
-        "peekOfCode": "class JobRepository:\n    def __init__(self, data_root: Path):\n        self.data_root = data_root\n        self.applications_path = data_root / \"job_applications.json\"\n        self.exclusions_path = data_root / \"job_exclusions.json\"\n        self.profile_path = data_root / \"resume\" / \"resume-data.json\"\n    def run_files(self) -> list[Path]:\n        candidates = [\n            path\n            for path in self.data_root.glob(\"job_search_*.json\")",
+        "peekOfCode": "class JobRepository:\n    \"\"\"PostgreSQL-backed source of truth with a one-time legacy JSON importer.\"\"\"\n    def __init__(self, data_root: Path):\n        self.data_root = data_root\n        self.applications_path = data_root / \"job_applications.json\"\n        self.exclusions_path = data_root / \"job_exclusions.json\"\n        self.profile_path = data_root / \"resume\" / \"resume-data.json\"\n    def run_files(self) -> list[Path]:\n        candidates = [\n            path",
         "detail": "backend.repository",
         "documentation": {}
     },
@@ -520,16 +1971,7 @@
         "kind": 5,
         "importPath": "backend.repository",
         "description": "backend.repository",
-        "peekOfCode": "JSONDict = dict[str, Any]\n_WRITE_LOCK = threading.Lock()\n_DATE_RE = re.compile(r\"job_search_(\\d{4}-\\d{2}-\\d{2})(?:-rerun(?:-(\\d+))?)?\\.json$\")\ndef _read_json(path: Path, default: JSONDict | None = None) -> JSONDict:\n    if not path.exists():\n        return default or {}\n    with path.open(\"r\", encoding=\"utf-8-sig\") as handle:\n        return json.load(handle)\ndef _atomic_write_json(path: Path, payload: JSONDict) -> None:\n    temp_path = path.with_suffix(path.suffix + \".tmp\")",
-        "detail": "backend.repository",
-        "documentation": {}
-    },
-    {
-        "label": "_WRITE_LOCK",
-        "kind": 5,
-        "importPath": "backend.repository",
-        "description": "backend.repository",
-        "peekOfCode": "_WRITE_LOCK = threading.Lock()\n_DATE_RE = re.compile(r\"job_search_(\\d{4}-\\d{2}-\\d{2})(?:-rerun(?:-(\\d+))?)?\\.json$\")\ndef _read_json(path: Path, default: JSONDict | None = None) -> JSONDict:\n    if not path.exists():\n        return default or {}\n    with path.open(\"r\", encoding=\"utf-8-sig\") as handle:\n        return json.load(handle)\ndef _atomic_write_json(path: Path, payload: JSONDict) -> None:\n    temp_path = path.with_suffix(path.suffix + \".tmp\")\n    with temp_path.open(\"w\", encoding=\"utf-8\") as handle:",
+        "peekOfCode": "JSONDict = dict[str, Any]\n_DATE_RE = re.compile(r\"job_search_(\\d{4}-\\d{2}-\\d{2})(?:-rerun(?:-(\\d+))?)?\\.json$\")\ndef _read_json(path: Path, default: JSONDict | None = None) -> JSONDict:\n    if not path.exists():\n        return default or {}\n    with path.open(\"r\", encoding=\"utf-8-sig\") as handle:\n        return json.load(handle)\ndef _parse_date(value: Any) -> date | None:\n    if not value:\n        return None",
         "detail": "backend.repository",
         "documentation": {}
     },
@@ -538,7 +1980,7 @@
         "kind": 5,
         "importPath": "backend.repository",
         "description": "backend.repository",
-        "peekOfCode": "_DATE_RE = re.compile(r\"job_search_(\\d{4}-\\d{2}-\\d{2})(?:-rerun(?:-(\\d+))?)?\\.json$\")\ndef _read_json(path: Path, default: JSONDict | None = None) -> JSONDict:\n    if not path.exists():\n        return default or {}\n    with path.open(\"r\", encoding=\"utf-8-sig\") as handle:\n        return json.load(handle)\ndef _atomic_write_json(path: Path, payload: JSONDict) -> None:\n    temp_path = path.with_suffix(path.suffix + \".tmp\")\n    with temp_path.open(\"w\", encoding=\"utf-8\") as handle:\n        json.dump(payload, handle, indent=2, ensure_ascii=False)",
+        "peekOfCode": "_DATE_RE = re.compile(r\"job_search_(\\d{4}-\\d{2}-\\d{2})(?:-rerun(?:-(\\d+))?)?\\.json$\")\ndef _read_json(path: Path, default: JSONDict | None = None) -> JSONDict:\n    if not path.exists():\n        return default or {}\n    with path.open(\"r\", encoding=\"utf-8-sig\") as handle:\n        return json.load(handle)\ndef _parse_date(value: Any) -> date | None:\n    if not value:\n        return None\n    try:",
         "detail": "backend.repository",
         "documentation": {}
     }
