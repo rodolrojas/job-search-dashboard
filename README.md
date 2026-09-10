@@ -118,30 +118,85 @@ If the Flask service is unavailable, the dashboard enters preview mode using a b
 The Linux backend container cannot execute a Windows host binary directly.
 `backend/codex_bridge.py` solves that boundary without copying Codex credentials
 into Docker: it accepts one authenticated, schema-constrained operation and
-always launches `codex exec` with a read-only sandbox and no approvals.
+always launches `codex exec` with a read-only sandbox.
 
 1. Copy `backend/.env.example` to `backend/.env` and replace
    `CODEX_BRIDGE_TOKEN` with a random value of at least 32 characters. For
    example, generate one with
    `[Convert]::ToHexString([Security.Cryptography.RandomNumberGenerator]::GetBytes(32))`.
-   Keep `CODEX_BRIDGE_URL` blank in this host-side file.
-2. Start the bridge on the host:
+   For Docker backend mode, set:
+
+   ```dotenv
+   CODEX_BRIDGE_URL=http://host.docker.internal:8765
+   CODEX_BRIDGE_HOST=0.0.0.0
+   CODEX_BRIDGE_PORT=8765
+   ```
+
+   Compose passes the same `backend/.env` into the backend container. The
+   bridge process ignores `CODEX_BRIDGE_URL`, while the container uses it to
+   reach the host.
+2. Prepare the host Python environment once:
 
    ```powershell
    Set-Location backend
-   python codex_bridge.py
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   python -m pip install -r requirements.txt
    ```
 
-3. In another terminal, start Docker with the same environment file. This also
+   On Linux or macOS:
+
+   ```bash
+   cd backend
+   python3 -m venv .venv
+   .venv/bin/python -m pip install -r requirements.txt
+   ```
+
+3. Confirm the host can run Codex:
+
+   ```powershell
+   codex --version
+   codex login status
+   ```
+
+4. Start the bridge on the host and leave it running:
+
+   ```powershell
+   Set-Location backend
+   .\.venv\Scripts\python.exe codex_bridge.py
+   ```
+
+   On Linux or macOS:
+
+   ```bash
+   cd backend
+   .venv/bin/python codex_bridge.py
+   ```
+
+   The bridge should report that it is running on `0.0.0.0` and port `8765`.
+   If it only binds to `127.0.0.1`, the Docker container cannot reach it through
+   `host.docker.internal`.
+5. In another terminal, start Docker with the same environment file. This also
    starts the persistent PostgreSQL container:
 
    ```powershell
    docker compose --env-file backend/.env up --build
    ```
 
-Compose points the backend at `http://host.docker.internal:8765`. The bearer
-token is required on both sides; do not commit it. If Windows Firewall asks,
-allow the bridge only on trusted/private networks.
+6. Verify the container runtime connection:
+
+   ```powershell
+   docker exec job-dashboard-backend-1 python -c "import urllib.request; print(urllib.request.urlopen('http://127.0.0.1:5000/api/agent', timeout=15).read().decode())"
+   ```
+
+   The response should include `"configured": true`,
+   `"provider": "Host Codex bridge"`, and the installed Codex CLI version. If it
+   says `Codex host bridge is unavailable (URLError)`, check that the bridge
+   process is still running, `CODEX_BRIDGE_URL` is
+   `http://host.docker.internal:8765`, and `CODEX_BRIDGE_HOST` is `0.0.0.0`.
+
+The bearer token is required on both sides; do not commit it. If Windows
+Firewall asks, allow the bridge only on trusted/private networks.
 
 ## Codex cover-letter generation
 

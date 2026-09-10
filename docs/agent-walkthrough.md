@@ -81,10 +81,40 @@ CODEX_TIMEOUT_SECONDS=600
 Smaller values make learning runs faster. The CLI uses the authentication and
 model access already configured for the signed-in host Codex installation.
 
-For Docker, start `python backend/codex_bridge.py` on the host and run Compose
-with `docker compose --env-file backend/.env up --build`. The same long random
-`CODEX_BRIDGE_TOKEN` must reach both processes. The container never receives
-the host's Codex credential files.
+For Docker, the backend container reaches Codex through the host bridge:
+
+1. Copy `backend/.env.example` to `backend/.env`.
+2. Set a long random `CODEX_BRIDGE_TOKEN`.
+3. Set `CODEX_BRIDGE_URL=http://host.docker.internal:8765`.
+4. Keep `CODEX_BRIDGE_HOST=0.0.0.0` and `CODEX_BRIDGE_PORT=8765`.
+5. From `backend/`, create the host venv and install dependencies:
+
+   ```bash
+   python3 -m venv .venv
+   .venv/bin/python -m pip install -r requirements.txt
+   ```
+
+6. Start the bridge on the host and leave it running:
+
+   ```bash
+   .venv/bin/python codex_bridge.py
+   ```
+
+7. From the repository root, start the containers:
+
+   ```bash
+   docker compose --env-file backend/.env up --build
+   ```
+
+8. Verify the backend sees the bridge:
+
+   ```bash
+   docker exec job-dashboard-backend-1 python -c "import urllib.request; print(urllib.request.urlopen('http://127.0.0.1:5000/api/agent', timeout=15).read().decode())"
+   ```
+
+The response should report `"configured": true` and `"provider": "Host Codex
+bridge"`. The same `CODEX_BRIDGE_TOKEN` must reach both processes, but the
+container never receives the host's Codex credential files.
 
 ## Why it is an agent
 
@@ -103,7 +133,10 @@ mode is inspectable.
   bypassed.
 - Docker requires the included host bridge because a Linux container cannot
   directly start a Windows host process. The bridge must remain running for an
-  agent run to complete.
+  agent run to complete. If the container reports `Codex host bridge is
+  unavailable (URLError)`, the bridge is usually stopped, bound only to
+  `127.0.0.1`, or the container does not have
+  `CODEX_BRIDGE_URL=http://host.docker.internal:8765`.
 - The in-process registry assumes one Flask process. A production system with
   multiple replicas should replace it with a durable queue such as Celery/RQ
   plus Redis or a database-backed job table.

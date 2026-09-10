@@ -62,9 +62,10 @@ flowchart LR
 - When Flask runs in Docker, its runtime adapter sends only the prompt, output
   schema, and search flag to an authenticated bridge on the host. The bridge
   does not accept arbitrary commands, paths, or sandbox settings.
-- Codex runs with a read-only sandbox and approvals disabled. Ordinary Python
-  code still owns query limits, history exclusion, URL/date validation, score
-  normalization, resume allowlisting, and persistence.
+- Codex runs with a read-only sandbox through either direct CLI mode or the
+  host bridge. Ordinary Python code still owns query limits, history exclusion,
+  URL/date validation, score normalization, resume allowlisting, and
+  persistence.
 - Every agent phase is persisted to PostgreSQL and exposed to the frontend.
   Interrupted runs are marked failed after a backend restart, keeping the
   execution trace inspectable without exposing hidden reasoning.
