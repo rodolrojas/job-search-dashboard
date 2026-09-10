@@ -47,7 +47,7 @@ def test_codex_runner_uses_stdin_read_only_mode_structured_output_and_supported_
     assert command[-1] == "-"
     assert "--search" not in command
     assert command[command.index("--sandbox") + 1] == "read-only"
-    assert command[command.index("--ask-for-approval") + 1] == "never"
+    assert "--ask-for-approval" not in command
     assert command[command.index("--model") + 1] == "test-model"
 
 

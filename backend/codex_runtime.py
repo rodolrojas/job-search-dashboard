@@ -193,8 +193,6 @@ class CodexCliRunner:
                 str(self.workspace),
                 "--sandbox",
                 "read-only",
-                "--ask-for-approval",
-                "never",
                 "--output-schema",
                 str(schema_path),
                 "--output-last-message",
