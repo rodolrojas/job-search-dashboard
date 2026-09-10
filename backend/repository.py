@@ -104,6 +104,41 @@ def _default_exclusions() -> JSONDict:
     }
 
 
+def _default_profile() -> JSONDict:
+    return {
+        "basics": {"name": "Rodolfo Rojas"},
+        "summary": [
+            "I bring more than ten years of full-stack software engineering experience.",
+        ],
+        "variants": {
+            "general": {
+                "label": "General",
+                "headline": "Senior full-stack software engineer",
+            },
+            "react-node": {
+                "label": "React + Node",
+                "headline": "Senior React, Node.js, and TypeScript engineer",
+            },
+            "frontend": {
+                "label": "Frontend",
+                "headline": "Senior frontend engineer",
+            },
+            "backend": {
+                "label": "Backend",
+                "headline": "Senior backend engineer",
+            },
+            "php": {
+                "label": "PHP",
+                "headline": "Senior PHP engineer",
+            },
+            "go": {
+                "label": "Go",
+                "headline": "Senior Go engineer",
+            },
+        },
+    }
+
+
 class JobRepository:
     """PostgreSQL-backed source of truth with a one-time legacy JSON importer."""
 
@@ -125,9 +160,7 @@ class JobRepository:
         """Import legacy workspace files only when their destination tables are empty."""
 
         if db.session.query(CandidateProfile).count() == 0:
-            profile = _read_json(self.profile_path)
-            if profile:
-                self._save_profile(profile)
+            self._save_profile(_read_json(self.profile_path, _default_profile()))
 
         if db.session.query(JobSearchRun).count() == 0:
             for path in reversed(self.run_files()):
